@@ -1,183 +1,186 @@
 <>
-    <header>
-        <div class="container-header">
-            <a href="#" class="logo">Ozona Patagonia</a>
-            <nav>
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
-    <div class="sidebar">
-        <button class="close-btn" aria-label="Close menu">&times;</button>
+  <header>
+    <div class="container-header">
+      <a href="#" class="logo">Ozona Patagonia</a>
+      <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Contacto</a></li>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Productos</a></li>
+          <li><a href="#">Contacto</a></li>
         </ul>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
     </div>
+  </header>
+  <div class="sidebar">
+    <button class="close-btn" aria-label="Close menu">&times;</button>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Nosotros</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </div>
 </>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-        font-family: Arial, sans-serif;
-        overflow-x: hidden;
-    }
+  body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
 
-    header {
-        width: 100%;
-        height: 8svh;
-        background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
-    
-    .container-header {
-        height: 100%;
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+  header {
+    width: 100%;
+    height: 8svh;
+    background-color: #fff;
+    box-shadow:
+      rgba(0, 0, 0, 0.12) 0px 1px 3px,
+      rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 
-    .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-        text-decoration: none;
-    }
+  .container-header {
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    nav {
-        display: flex;
-    }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
 
+  nav {
+    display: flex;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-left: 1rem;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #333;
+  }
+
+  nav ul li a:hover {
+    color: #b12725;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 2px 0;
+    transition: 0.4s;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f8f8f8;
+    transition: 0.4s;
+    padding: 1rem;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.active {
+    right: 0;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    margin-top: 2rem;
+  }
+
+  .sidebar ul li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
     nav ul {
-        list-style-type: none;
-        display: flex;
-    }
-
-    nav ul li {
-        margin-left: 1rem;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1.1em;
-        color: #333;
-    }
-
-    nav ul li a:hover {
-        color: #b12725;
+      display: none;
     }
 
     .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        background: none;
-        border: none;
+      display: flex;
     }
-
-    .hamburger span {
-        width: 25px;
-        height: 3px;
-        background-color: #333;
-        margin: 2px 0;
-        transition: 0.4s;
-    }
-
-    .sidebar {
-        position: fixed;
-        top: 0;
-        right: -250px;
-        width: 250px;
-        height: 100%;
-        background-color: #f8f8f8;
-        transition: 0.4s;
-        padding: 1rem;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .sidebar.active {
-        right: 0;
-    }
-
-    .sidebar ul {
-        list-style-type: none;
-        margin-top: 2rem;
-    }
-
-    .sidebar ul li {
-        margin-bottom: 1rem;
-    }
-
-    .sidebar ul li a {
-        text-decoration: none;
-        color: #333;
-        font-size: 1.2rem;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-        nav ul {
-            display: none;
-        }
-
-        .hamburger {
-            display: flex;
-        }
-    }
+  }
 </style>
 
 <script>
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.querySelector('.sidebar');
-    const closeBtn = document.querySelector('.close-btn');
+  const hamburger = document.querySelector(".hamburger");
+  const sidebar = document.querySelector(".sidebar");
+  const closeBtn = document.querySelector(".close-btn");
 
-    function toggleSidebar() {
-        sidebar?.classList.toggle('active');
+  function toggleSidebar() {
+    sidebar?.classList.toggle("active");
+  }
+
+  hamburger?.addEventListener("click", toggleSidebar);
+  closeBtn?.addEventListener("click", toggleSidebar);
+
+  // Close sidebar when clicking outside
+  document.addEventListener("click", (event) => {
+    const target = event.target as Node;
+    if (sidebar && target && hamburger) {
+      if (!sidebar.contains(target) && !hamburger.contains(target)) {
+        sidebar.classList.remove("active");
+      }
     }
-
-    hamburger?.addEventListener('click', toggleSidebar);
-    closeBtn?.addEventListener('click', toggleSidebar);
-
-    // Close sidebar when clicking outside
-    document.addEventListener('click', (event) => {
-        const target = event.target as Node;
-        if (sidebar && target && hamburger) {
-            if (!sidebar.contains(target) && !hamburger.contains(target)) {
-                sidebar.classList.remove('active');
-            }
-        }
-    });
+  });
 </script>
