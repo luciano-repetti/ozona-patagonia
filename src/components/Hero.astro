@@ -1,0 +1,84 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">OZONA PATAGONIA</h1>
+        <h2 class="hero-subtitle">COSMÉTICA GOURMET</h2>
+        <button class="hero-button">Visita nuestra tienda web</button>
+    </div>
+</section>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .hero {
+        background-image: url('/bg-hero.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 92svh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 50% 100%, 0 calc(100% - 100px));
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+        text-align: center;
+        color: white;
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 20px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-button {
+        background-color: #b12725;
+        border-radius: 8px;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color, scale 0.3s ease;
+    }
+
+    .hero-button:hover {
+        background-color: #8e1f1d;
+        scale: 1.1;
+    }
+
+    @media (max-width: 600px) {
+        .hero {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 50% 100%, 0 calc(100% - 50px));
+        }
+    }
+</style>
