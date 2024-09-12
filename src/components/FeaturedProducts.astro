@@ -1,122 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import aguaMicelar from '../assets/featured_products/agua_micelar.jpg';
+import contornoOjos from '../assets/featured_products/contorno_ojos.jpg';
+import cremaAntiage from '../assets/featured_products/crema_antiage.jpg';
+import cremaManos from '../assets/featured_products/crema_para_manos.jpg';
+import fluidoCorporal from '../assets/featured_products/fluido_corporal.jpg';
+import aceiteRosaMosqueta from '../assets/featured_products/rosa-mosqueta.jpg';
+
+const productos = [
+  {
+    nombre: "Agua micelar",
+    descripcion: "Elimina todo rastro de maquillaje, grasa e impurezas sin perjudicar ni agredir la piel.",
+    imagen: aguaMicelar,
+    alt: "Agua Micelar",
+    enlace: "https://tienda.ozonapatagonia.com"
+  },
+  {
+    nombre: "Contorno de ojos - Crema antistress",
+    descripcion: "Refrescante, descongestionante y reconstituyente. Contiene Hialuronato, Q10, Cafeína. Se debe aplicar por la noche.",
+    imagen: contornoOjos,
+    alt: "Contorno de Ojos",
+    enlace: "https://tienda.ozonapatagonia.com"
+  },
+  {
+    nombre: "Crema antiage",
+    descripcion: "Potentes activos como el Hialuronato en sinergia con Aceite de Rosa Mosqueta.",
+    imagen: cremaAntiage,
+    alt: "Crema Antiage",
+    enlace: "https://tienda.ozonapatagonia.com"
+  },
+  {
+    nombre: "Crema para manos",
+    descripcion: "Fina fragancia y confort en manos durante todo el día, rápida absorción, con Aceite de Rosa Mosqueta.",
+    imagen: cremaManos,
+    alt: "Crema para Manos",
+    enlace: "https://tienda.ozonapatagonia.com"
+  },
+  {
+    nombre: "Fluido corporal",
+    descripcion: "Revitalizante, reafirmante y tonificante. Con aceite de Rosa Mosqueta y emolientes vegetales, textura ligera y suave. Aplicar en todo el cuerpo dia y noche.",
+    imagen: fluidoCorporal,
+    alt: "Fluido Corporal",
+    enlace: "https://tienda.ozonapatagonia.com"
+  },
+  {
+    nombre: "Aceite de Rosa Mosqueta",
+    descripcion: "100% puro, es un poderoso regenerador de la piel, contribuye a eliminar manchas, cicatrices y marcas.",
+    imagen: aceiteRosaMosqueta,
+    alt: "Aceite de Rosa Mosqueta",
+    enlace: "https://tienda.ozonapatagonia.com"
+  }
+];
+---
+
 <section class="featured-products">
   <div class="container">
     <h2 class="section-title">Productos Destacados</h2>
     <div class="product-grid">
-      <div class="product-card">
-        <div class="container-image">
-          <img
-            src="/featured _products/agua_micelar.jpg"
-            alt="Crema Facial"
-            class="product-image"
-          />
+      {productos.map(producto => (
+        <div class="product-card">
+          <div class="container-image">
+            <Image
+              src={producto.imagen}
+              alt={producto.alt}
+              class="product-image"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h3 class="product-name">{producto.nombre}</h3>
+          <p class="product-description">{producto.descripcion}</p>
+          <div class="container-button">
+            <a href={producto.enlace} class="product-button">Ver en Tienda</a>
+          </div>
         </div>
-        <h3 class="product-name">Agua micelar</h3>
-        <p class="product-description">
-          Elimina todo rastro de maquillaje, grasa e impurezas sin perjudicar ni
-          agredir la piel.
-        </p>
-        <div class="container-button">
-          <a href="https://tienda.ozonapatagonia.com" class="product-button"
-            >Ver en Tienda</a
-          >
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="container-image">
-          <img
-            src="/featured _products/contorno_ojos.jpg"
-            alt="Fluido Corporal"
-            class="product-image"
-          />
-        </div>
-        <h3 class="product-name">Contorno de ojos - Crema antistress</h3>
-        <p class="product-description">
-          Refrescante, descongestionante y reconstituyente. Contiene
-          Hialuronato, Q10, Cafeína. Se debe aplicar por la noche.
-        </p>
-        <div class="container-button">
-          <a href="https://tienda.ozonapatagonia.com" class="product-button"
-            >Ver en Tienda</a
-          >
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="container-image">
-          <img
-            src="/featured _products/crema_antiage.jpg"
-            alt="Agua Micelar"
-            class="product-image"
-          />
-        </div>
-        <h3 class="product-name">Crema antiage</h3>
-        <p class="product-description">
-          Potentes activos como el Hialuronato en sinergia con Aceite de Rosa
-          Mosqueta
-        </p>
-        <div class="container-button">
-          <a href="https://tienda.ozonapatagonia.com" class="product-button"
-            >Ver en Tienda</a
-          >
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="container-image">
-          <img
-            src="/featured _products/crema_para_manos.jpg"
-            alt="Tónico Facial"
-            class="product-image"
-          />
-        </div>
-        <h3 class="product-name">Crema para manos</h3>
-        <p class="product-description">
-          Fina fragancia y confort en manos durante todo el día, rápida
-          absorción, con Aceite de Rosa Mosqueta.
-        </p>
-        <div class="container-button">
-          <a href="https://tienda.ozonapatagonia.com" class="product-button"
-            >Ver en Tienda</a
-          >
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="container-image">
-          <img
-            src="/featured _products/fluido_corporal.jpg"
-            alt="Serum Antiarrugas"
-            class="product-image"
-          />
-        </div>
-        <h3 class="product-name">Fluido corporal</h3>
-        <p class="product-description">
-          Revitalizante, reafirmante y tonificante. Con aceite de Rosa Mosqueta
-          y emolientes vegetales, textura ligera y suave. Aplicar en todo el
-          cuerpo dia y noche.
-        </p>
-        <div class="container-button">
-          <a href="https://tienda.ozonapatagonia.com" class="product-button"
-            >Ver en Tienda</a
-          >
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="container-image">
-          <img
-            src="/featured _products/crema_antiage.jpg"
-            alt="Mascarilla Hidratante"
-            class="product-image"
-          />
-        </div>
-        <h3 class="product-name">Aceite de Rosa Mosqueta</h3>
-        <p class="product-description">
-          100% puro, es un poderoso regenerador de la piel, contribuye a
-          eliminar manchas, cicatrices y marcas.
-        </p>
-        <div class="container-button">
-          <a href="https://tienda.ozonapatagonia.com" class="product-button"
-            >Ver en Tienda</a
-          >
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -165,6 +123,7 @@
 
   .product-image {
     width: 100%;
+    height: auto;
     border-radius: 8px;
     transition: all 0.3s ease;
   }
