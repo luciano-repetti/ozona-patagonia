@@ -8,23 +8,23 @@
         <li><a href="#" aria-label="Ir a la página de nosotros">Nosotros</a></li>
         <li><a href="#" aria-label="Ir a la página de productos">Productos</a></li>
         <li><a href="#" aria-label="Ir a la página de contacto">Contacto</a></li>
+        <li><a href="#" aria-label="Ir a la página de la tienda" class="button-tienda">Ir a la tienda <i class="icon-arrow-rigth"></i></a></li>
       </ul>
       <button class="hamburger" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
+        <i class="icon-menu-burger"></i>
       </button>
     </nav>
   </div>
 </header>
 
 <div class="sidebar" role="navigation" aria-labelledby="sidebar-title">
-  <button class="close-btn" aria-label="Cerrar menú">&times;</button>
+  <button class="close-btn" aria-label="Cerrar menú"><i class="icon-cross-delete"></i></button>
   <ul>
     <li><a href="#" aria-label="Ir a la página de inicio">Inicio</a></li>
     <li><a href="#" aria-label="Ir a la página de nosotros">Nosotros</a></li>
     <li><a href="#" aria-label="Ir a la página de productos">Productos</a></li>
     <li><a href="#" aria-label="Ir a la página de contacto">Contacto</a></li>
+    <li><a href="#" aria-label="Ir a la página de la tienda" class="button-tienda">Ir a la tienda <i class="icon-arrow-rigth"></i></a></li>
   </ul>
 </div>
 
@@ -76,11 +76,13 @@
 
   nav {
     display: flex;
+    align-items: center;
   }
 
   nav ul {
     list-style-type: none;
     display: flex;
+    align-items: center;
   }
 
   nav ul li {
@@ -94,6 +96,26 @@
     color: #333;
   }
 
+  .button-tienda {
+    color: #fff !important;
+    background-color: #b12725;
+    padding: .5em;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color, scale 0.3s ease;
+    &:hover {
+      color: #fff !important;
+      scale: 1.1;
+      background-color: #8e1f1d;
+    }
+
+    &::after {
+      content: '';
+    }
+  }
+
   nav ul li a:hover {
     color: #b12725;
   }
@@ -104,14 +126,9 @@
     cursor: pointer;
     background: none;
     border: none;
-  }
-
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 2px 0;
-    transition: 0.4s;
+    .icon-menu-burger:before {
+      font-size: 1.7em;
+    }
   }
 
   .sidebar {
@@ -119,7 +136,7 @@
     z-index: 150;
     top: 0;
     right: -250px;
-    width: 250px;
+    min-width: 250px;
     height: 100%;
     background-color: #f8f8f8;
     transition: 0.4s;
@@ -158,13 +175,22 @@
     cursor: pointer;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 790px) {
     nav ul {
       display: none;
     }
 
     .hamburger {
       display: flex;
+    }
+
+    .button-tienda {
+      margin-top: 1em;
+      width: 100%;
+      justify-content: center;
+      padding: .2em;
+      &:hover {
+        scale: 1.05;
     }
   }
 </style>
