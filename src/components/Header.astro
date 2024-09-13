@@ -4,10 +4,10 @@
     <a href="#" class="logo" aria-label="Ir a la página principal">Ozona Patagonia</a>
     <nav>
       <ul>
-        <li><a href="#" aria-label="Ir a la página de inicio">Inicio</a></li>
-        <li><a href="#" aria-label="Ir a la página de nosotros">Nosotros</a></li>
-        <li><a href="#" aria-label="Ir a la página de productos">Productos</a></li>
-        <li><a href="#" aria-label="Ir a la página de contacto">Contacto</a></li>
+        <li><a class="menu-item active" href="#inicio" aria-label="Ir a la página de inicio">Inicio</a></li>
+        <li><a class="menu-item" href="#nosotros" aria-label="Ir a la página de nosotros">Nosotros</a></li>
+        <li><a class="menu-item" href="#productos-destacados" aria-label="Ir a la página de productos">Productos</a></li>
+        <li><a class="menu-item" href="#contacto" aria-label="Ir a la página de contacto">Contacto</a></li>
         <li><a href="#" aria-label="Ir a la página de la tienda" class="button-tienda">Ir a la tienda <i class="icon-arrow-rigth"></i></a></li>
       </ul>
       <button class="hamburger" aria-label="Abrir menú">
@@ -94,6 +94,10 @@
     font-weight: 600;
     font-size: 1.1em;
     color: #333;
+  }
+
+  nav ul li a.active {
+    color: #b12725;
   }
 
   .button-tienda {
