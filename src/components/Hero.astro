@@ -2,7 +2,7 @@
     <div class="hero-content">
         <h1 class="hero-title">OZONA PATAGONIA</h1>
         <h2 class="hero-subtitle">COSMÉTICA GOURMET</h2>
-        <button class="hero-button">Visita nuestra tienda web</button>
+        <a href="https://tienda.ozonapatagonia.com.ar/" aria-label="Ir a la página de la tienda" target="_blank" class="hero-button">Visita nuestra tienda web</a>
     </div>
 </section>
 
@@ -22,7 +22,7 @@
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
-        height: 92svh;
+        height: 100svh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -67,6 +67,7 @@
         padding: 10px 20px;
         font-size: 1rem;
         cursor: pointer;
+        text-decoration: none;
         transition: background-color, scale 0.3s ease;
     }
 
@@ -86,7 +87,7 @@
     document.addEventListener("DOMContentLoaded", function () {
         const heroSection = document.querySelector('.hero') as HTMLElement;
         const highResImage = new Image();
-        highResImage.src = '/src/assets/bg-hero.jpg';
+        highResImage.src = '/bg-hero.jpg';
 
         highResImage.onload = function () {
             if(heroSection && heroSection.style) {
