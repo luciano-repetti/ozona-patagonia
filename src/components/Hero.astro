@@ -18,7 +18,7 @@
     }
 
     .hero {
-        background-image: url('/src/assets/bg-hero.jpg');
+        background-image: url('/src/assets/bg-hero-low.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -49,6 +49,7 @@
     }
 
     .hero-title {
+        font-family: 'busuroma', sans-serif;
         font-size: 3rem;
         margin-bottom: 1rem;
     }
@@ -80,3 +81,17 @@
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heroSection = document.querySelector('.hero') as HTMLElement;
+        const highResImage = new Image();
+        highResImage.src = '/src/assets/bg-hero.jpg';
+
+        highResImage.onload = function () {
+            if(heroSection && heroSection.style) {
+                heroSection.style.backgroundImage = `url(${highResImage.src})`;
+            }
+        };
+    });
+</script>

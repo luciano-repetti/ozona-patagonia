@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.jpg';
+
+import sello1 from "../assets/no-test-animal.png";
+import sello2 from "../assets/chica-rosa.png"
 ---
 
 <div class="slogan-section scrollspy" id="nosotros">
@@ -22,6 +25,10 @@ import logo from '../assets/logo.jpg';
       dermatológicas. No queremos parecer de la Patagonia, sino que somos de la
       Patagonia.
     </p>
+    <div class="stamps-container">
+      <Image src={sello2} alt="Sello 1" class="stamp-image" />
+      <Image src={sello1} alt="Sello 2" class="stamp-image" />
+    </div>
   </div>
 </div>
 
@@ -66,6 +73,18 @@ import logo from '../assets/logo.jpg';
     color: #fff;
   }
 
+  .stamps-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+  }
+  .stamp-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
   @media (max-width: 600px) {
     .logo {
       img {
@@ -79,6 +98,10 @@ import logo from '../assets/logo.jpg';
 
     .hero-text {
       font-size: 1.1em;
+    }
+
+    .stamps-container {
+      padding-bottom: 1em;
     }
   }
 </style>
