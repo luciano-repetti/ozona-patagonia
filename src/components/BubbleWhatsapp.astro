@@ -1,0 +1,47 @@
+<div class="bubble-whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=+5492944537882&text=Hola%20que%20tal,%20necesito%20información%20en:" class="link-whatsapp" target="_blank">
+        <i class="icon-whatsapp"></i>
+    </a>
+ </div>
+
+<style>
+    .bubble-whatsapp {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        padding: 1em;
+        border-radius: 50%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+        transition: scale 0.3s ease;
+    }
+
+    .bubble-whatsapp:hover {
+        scale: 1.1;
+    }
+
+    .link-whatsapp {
+        text-decoration: none;
+        color: #25d366;
+    }
+
+    .icon-whatsapp {
+        font-size: 2em;
+    }
+
+    @media (max-width: 790px) {
+        .bubble-whatsapp {
+            bottom: 40px;
+            right: 10px;
+            padding: .8em;
+        }
+
+        .icon-whatsapp {
+            font-size: 1.5em;
+        }
+    }
+</style>
