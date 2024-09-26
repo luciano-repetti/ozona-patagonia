@@ -53,8 +53,8 @@ const productos = [
 ];
 ---
 
-<section class="featured-products scrollspy" id="productos-destacados">
-  <div class="container">
+<div class="featured-products scrollspy" id="productos-destacados">
+  <section class="container">
     <h2 class="section-title">Productos Destacados</h2>
     <div class="product-grid">
       {productos.map(producto => (
@@ -76,8 +76,8 @@ const productos = [
         </div>
       ))}
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
   .featured-products {
