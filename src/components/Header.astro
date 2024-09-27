@@ -17,15 +17,17 @@
   </div>
 </header>
 
-<div class="sidebar" role="navigation" aria-labelledby="sidebar-title">
-  <button class="close-btn" aria-label="Cerrar menú"><i class="icon-cross-delete"></i></button>
-  <ul>
-    <li><a href="#inicio" aria-label="Ir a la página de inicio">Inicio</a></li>
-    <li><a href="#nosotros" aria-label="Ir a la página de nosotros">Nosotros</a></li>
-    <li><a href="#productos-destacados" aria-label="Ir a la página de productos">Productos</a></li>
-    <li><a href="#contacto" aria-label="Ir a la página de contacto">Contacto</a></li>
-    <li><a href="https://tienda.ozonapatagonia.com.ar/" aria-label="Ir a la página de la tienda" class="button-tienda">Ir a la tienda <i class="icon-arrow-rigth"></i></a></li>
-  </ul>
+<div class="container-sidebar">
+  <div class="sidebar" role="navigation" aria-labelledby="sidebar-title">
+    <button class="close-btn" aria-label="Cerrar menú"><i class="icon-cross-delete"></i></button>
+    <ul>
+      <li><a href="#inicio" aria-label="Ir a la página de inicio">Inicio</a></li>
+      <li><a href="#nosotros" aria-label="Ir a la página de nosotros">Nosotros</a></li>
+      <li><a href="#productos-destacados" aria-label="Ir a la página de productos">Productos</a></li>
+      <li><a href="#contacto" aria-label="Ir a la página de contacto">Contacto</a></li>
+      <li><a href="https://tienda.ozonapatagonia.com.ar/" aria-label="Ir a la página de la tienda" class="button-tienda">Ir a la tienda <i class="icon-arrow-rigth"></i></a></li>
+    </ul>
+  </div>
 </div>
 
 <!-- Agrega un identificador al título del menú lateral -->
@@ -135,6 +137,20 @@
     }
   }
 
+  .container-sidebar {
+    width: 100svw;
+    height: 100svh;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    background-color: rgba(0,0,0,.35);
+    z-index: 16;
+  }
+
+  .container-sidebar.active {
+    visibility: visible;
+  }
+
   .sidebar {
     position: fixed;
     z-index: 150;
@@ -206,12 +222,14 @@
 <script>
   const hamburger = document.querySelector(".hamburger");
   const sidebar = document.querySelector(".sidebar");
+  const container_sidebar = document.querySelector(".container-sidebar");
   const closeBtn = document.querySelector(".close-btn");
   const sidebarLinks = sidebar?.querySelectorAll("a") || []; // Asegúrate de que no sea null
 
   function toggleSidebar() {
-    if (sidebar) {
+    if (sidebar && container_sidebar) {
       sidebar.classList.toggle("active");
+      container_sidebar.classList.toggle("active");
     }
   }
 
@@ -222,15 +240,17 @@
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", () => {
       sidebar?.classList.remove("active");
+      container_sidebar?.classList.remove("active");
     });
   });
 
   // Close sidebar when clicking outside
   document.addEventListener("click", (event) => {
     const target = event.target as HTMLElement; // Asegura que el target sea un HTMLElement
-    if (sidebar && target && hamburger) {
+    if (sidebar && target && hamburger && container_sidebar) {
       if (!sidebar.contains(target) && !hamburger.contains(target)) {
         sidebar.classList.remove("active");
+        container_sidebar.classList.remove("active");
       }
     }
   });

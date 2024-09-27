@@ -13,42 +13,42 @@ const productos = [
     descripcion: "Elimina todo rastro de maquillaje, grasa e impurezas sin perjudicar ni agredir la piel.",
     imagen: aguaMicelar,
     alt: "Agua Micelar",
-    enlace: "https://tienda.ozonapatagonia.com"
+    enlace: "https://tienda.ozonapatagonia.com.ar/product/agua-micelar"
   },
   {
     nombre: "Contorno de ojos - Crema antistress",
     descripcion: "Refrescante, descongestionante y reconstituyente. Contiene hialuronato, Q10 y cafeína. Aplicación durante día y noche.",
     imagen: contornoOjos,
     alt: "Contorno de Ojos",
-    enlace: "https://tienda.ozonapatagonia.com"
+    enlace: "https://tienda.ozonapatagonia.com.ar/product/contorno-de-ojos"
   },
   {
     nombre: "Crema antiage",
     descripcion: "Potentes activos como el Hialuronato en sinergia con Aceite de Rosa Mosqueta. Aplicación durante día y noche.",
     imagen: cremaAntiage,
     alt: "Crema Antiage",
-    enlace: "https://tienda.ozonapatagonia.com"
+    enlace: "https://tienda.ozonapatagonia.com.ar/product/crema-antiage-con-rosa-mosqueta"
   },
   {
     nombre: "Crema para manos",
     descripcion: "Fina fragancia y confort en manos durante todo el día, rápida absorción, con Aceite de Rosa Mosqueta.",
     imagen: cremaManos,
     alt: "Crema para Manos",
-    enlace: "https://tienda.ozonapatagonia.com"
+    enlace: "https://tienda.ozonapatagonia.com.ar/product/crema-para-manos-con-rosa-mosqueta"
   },
   {
     nombre: "Fluido corporal",
     descripcion: "Revitalizante, reafirmante y tonificante. Con aceite de Rosa Mosqueta y emolientes vegetales, textura ligera y suave. Aplicar en todo el cuerpo dia y noche.",
     imagen: fluidoCorporal,
     alt: "Fluido Corporal",
-    enlace: "https://tienda.ozonapatagonia.com"
+    enlace: "https://tienda.ozonapatagonia.com.ar/product/fluido-corporal-rosa-mosqueta"
   },
   {
     nombre: "Aceite de Rosa Mosqueta",
     descripcion: "100% puro, es un poderoso regenerador de la piel, contribuye a eliminar manchas, cicatrices y marcas.",
     imagen: aceiteRosaMosqueta,
     alt: "Aceite de Rosa Mosqueta",
-    enlace: "https://tienda.ozonapatagonia.com"
+    enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta"
   }
 ];
 ---
@@ -59,20 +59,22 @@ const productos = [
     <div class="product-grid">
       {productos.map(producto => (
         <div class="product-card">
-          <div class="container-image">
-            <Image
-              src={producto.imagen}
-              alt={producto.alt}
-              class="product-image"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <h3 class="product-name">{producto.nombre}</h3>
-          <p class="product-description">{producto.descripcion}</p>
-          <div class="container-button">
-            <a href={producto.enlace} class="product-button">Ver en Tienda</a>
-          </div>
+          <a href={producto.enlace} class="product-link">
+            <div class="container-image">
+              <Image
+                src={producto.imagen}
+                alt={producto.alt}
+                class="product-image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h3 class="product-name">{producto.nombre}</h3>
+            <p class="product-description">{producto.descripcion}</p>
+            <div class="container-button">
+              <span class="product-button">Ver en Tienda</span>
+            </div>
+          </a>
         </div>
       ))}
     </div>
@@ -113,6 +115,18 @@ const productos = [
     overflow: hidden;
     display: flex;
     flex-direction: column;
+  }
+
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .product-card:hover .container-image .product-image {
+    transform: scale(1.4);
   }
 
   .container-image {
