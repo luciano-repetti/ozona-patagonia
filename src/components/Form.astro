@@ -1,7 +1,7 @@
-<section class="section-contact scrollspy" id="contacto">
-  <div class="contact-form">
+<div class="section-contact scrollspy" id="contacto">
+  <section class="contact-form">
     <h2>Contáctanos</h2>
-    <p>Estamos aquí para responder tus preguntas</p>
+    <h3><span>Estamos aquí para responder tus </span>preguntas</h3>
     <!-- Asegúrate de que el atributo action apunte al script PHP -->
     <form action="/enviar_mensaje.php" method="POST">
       <div class="form-group">
@@ -18,17 +18,18 @@
       </div>
       <button type="submit" class="submit-btn">Enviar mensaje</button>
     </form>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
   .section-contact {
     width: 100%;
-    height: 75svh;
+    min-height: 75svh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f3f4f6;
+    padding: 1em 0;
     /* padding: 5em 1em; */
   }
 
@@ -39,6 +40,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
+    height: 100%;
     max-width: 400px;
   }
 
@@ -48,7 +50,7 @@
     margin-bottom: 1rem;
   }
 
-  .contact-form p {
+  .contact-form h3 {
     color: #6b7280;
     text-align: center;
     margin-bottom: 2rem;
