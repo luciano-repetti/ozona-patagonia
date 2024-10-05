@@ -3,7 +3,40 @@ interface Props {
 	title: string;
 }
 
-const { title } = Astro.props;
+let schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ozona Patagonia",
+  "url": "https://ozonapatagonia.com.ar",
+  "logo": "https://ozonapatagonia.com.ar/favicon.svg",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://ozonapatagonia.com.ar/favicon.svg",
+    "width": 600,
+    "height": 600
+  },
+  "sameAs": [
+    "https://www.facebook.com/OzonaPatagonia",
+    "https://www.instagram.com/ozona.patagonia"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+54-9-2944-53-7882",
+    "contactType": "Customer Service",
+    "areaServed": "AR",
+    "availableLanguage": "Spanish",
+    "email": "info@ozonapatagonia.com.ar"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Ejemplo 123",
+    "addressLocality": "Ciudad",
+    "addressRegion": "Provincia",
+    "postalCode": "1234",
+    "addressCountry": "AR"
+  }
+});
+
 ---
 
 <!doctype html>
@@ -38,26 +71,7 @@ const { title } = Astro.props;
 		<meta name="twitter:image" content="/images/twitter-image.jpg" />
 
 		<!-- Schema.org JSON-LD para datos estructurados -->
-		<script type="application/ld+json">
-		{
-		  "@context": "https://schema.org",
-		  "@type": "Organization",
-		  "name": "Ozona Patagonia",
-		  "url": "https://ozonapatagonia.com.ar",
-		  "logo": "https://www.tusitio.com/favicon.svg",
-		  "sameAs": [
-		    "https://www.facebook.com/OzonaPatagonia",
-		    "https://www.instagram.com/ozona.patagonia"
-		  ],
-		  "contactPoint": {
-		    "@type": "ContactPoint",
-		    "telephone": "+54-9-2944-53-7882",
-		    "contactType": "Customer Service",
-		    "areaServed": "AR",
-		    "availableLanguage": "Spanish"
-		  }
-		}
-		</script>
+		<script type="application/ld+json" set:html={schema}></script>
 
 		<meta name="theme-color" content="#c62828">
 		<title>Cosméticos Gourmet y Regionales - Ozona Patagonia</title>
@@ -142,6 +156,8 @@ const { title } = Astro.props;
 		font-family: "Poppins", sans-serif;
 	}
 </style>
+
+
 
 <script
   is:inline
