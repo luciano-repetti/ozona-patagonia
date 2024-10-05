@@ -81,6 +81,12 @@
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 50% 100%, 0 calc(100% - 50px));
         }
     }
+
+    @media not all and (min-resolution: 0.001dpcm) and (min-resolution: -webkit-min-device-pixel-ratio: 0) {
+    .hero {
+        background-attachment: scroll; /* Elimina el efecto de fijación en Safari/iOS */
+    }
+}
 </style>
 
 <script>
