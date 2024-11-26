@@ -1,163 +1,185 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 let schema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Ozona Patagonia",
-  "url": "https://ozonapatagonia.com.ar",
-  "logo": "https://ozonapatagonia.com.ar/favicon.svg",
-  "image": {
+  name: "Ozona Patagonia",
+  url: "https://ozonapatagonia.com.ar",
+  logo: "https://ozonapatagonia.com.ar/favicon.svg",
+  image: {
     "@type": "ImageObject",
-    "url": "https://ozonapatagonia.com.ar/favicon.svg",
-    "width": 600,
-    "height": 600
+    url: "https://ozonapatagonia.com.ar/favicon.svg",
+    width: 600,
+    height: 600,
   },
-  "sameAs": [
+  sameAs: [
     "https://www.facebook.com/OzonaPatagonia",
-    "https://www.instagram.com/ozona.patagonia"
+    "https://www.instagram.com/ozona.patagonia",
   ],
-  "contactPoint": {
+  contactPoint: {
     "@type": "ContactPoint",
-    "telephone": "+54-9-2944-53-7882",
-    "contactType": "Customer Service",
-    "areaServed": "AR",
-    "availableLanguage": "Spanish",
-    "email": "info@ozonapatagonia.com.ar"
+    telephone: "+54-9-2944-71-2211",
+    contactType: "Customer Service",
+    areaServed: "AR",
+    availableLanguage: "Spanish",
+    email: "info@ozonapatagonia.com.ar",
   },
-  "address": {
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": "Calle Ejemplo 123",
-    "addressLocality": "Ciudad",
-    "addressRegion": "Provincia",
-    "postalCode": "1234",
-    "addressCountry": "AR"
-  }
+    streetAddress: "Calle Ejemplo 123",
+    addressLocality: "Ciudad",
+    addressRegion: "Provincia",
+    postalCode: "1234",
+    addressCountry: "AR",
+  },
 });
-
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Empresa pionera en San Carlos de Bariloche, especializada en cosméticos 100% gourmet y productos regionales." />
-		<meta name="keywords" content="ozona patagonia, cosméticos gourmet, cosmética natural, productos regionales, Bariloche, cosmética, cosmética gourmet, cremas, cremas antiage, antiage, rosa mosqueta, productos de belleza" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<!-- Favicon en SVG (prioritario) -->
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-		<!-- Fallback en ICO para navegadores que no soportan SVG -->
-		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Empresa pionera en San Carlos de Bariloche, especializada en cosméticos 100% gourmet y productos regionales."
+    />
+    <meta
+      name="keywords"
+      content="ozona patagonia, cosméticos gourmet, cosmética natural, productos regionales, Bariloche, cosmética, cosmética gourmet, cremas, cremas antiage, antiage, rosa mosqueta, productos de belleza"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap" as="style">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon en SVG (prioritario) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Fallback en ICO para navegadores que no soportan SVG -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-		<!-- Meta Open Graph para mejorar la visualización en redes sociales -->
-		<meta property="og:title" content="Cosméticos Gourmet y Regionales - Ozona Patagonia" />
-		<meta property="og:description" content="Descubre nuestros productos 100% gourmet y cosméticos regionales hechos en Bariloche." />
-		<meta property="og:image" content="/images/og-image.jpg" />
-		<meta property="og:url" content="https://ozonapatagonia.com.ar" />
-		<meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-		<!-- Meta para Twitter -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Cosméticos Gourmet y Regionales - Ozona Patagonia" />
-		<meta name="twitter:description" content="Explora productos cosméticos 100% gourmet y regionales hechos en San Carlos de Bariloche." />
-		<meta name="twitter:image" content="/images/twitter-image.jpg" />
+    <!-- Meta Open Graph para mejorar la visualización en redes sociales -->
+    <meta
+      property="og:title"
+      content="Cosméticos Gourmet y Regionales - Ozona Patagonia"
+    />
+    <meta
+      property="og:description"
+      content="Descubre nuestros productos 100% gourmet y cosméticos regionales hechos en Bariloche."
+    />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="https://ozonapatagonia.com.ar" />
+    <meta property="og:type" content="website" />
 
-		<!-- Schema.org JSON-LD para datos estructurados -->
-		<script type="application/ld+json" set:html={schema}></script>
+    <!-- Meta para Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Cosméticos Gourmet y Regionales - Ozona Patagonia"
+    />
+    <meta
+      name="twitter:description"
+      content="Explora productos cosméticos 100% gourmet y regionales hechos en San Carlos de Bariloche."
+    />
+    <meta name="twitter:image" content="/images/twitter-image.jpg" />
 
-		<meta name="theme-color" content="#c62828">
-		<title>Cosméticos Gourmet y Regionales - Ozona Patagonia</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <!-- Schema.org JSON-LD para datos estructurados -->
+    <script type="application/ld+json" set:html={schema} />
+
+    <meta name="theme-color" content="#c62828" />
+    <title>Cosméticos Gourmet y Regionales - Ozona Patagonia</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-	@font-face {
-		font-family: 'icomoon';
-		src:  url('../fonts/icomoon.eot?t9wejw');
-		src:  url('../fonts/icomoon.eot?t9wejw#iefix') format('embedded-opentype'),
-			url('../fonts/icomoon.ttf?t9wejw') format('truetype'),
-			url('../fonts/icomoon.woff?t9wejw') format('woff'),
-			url('../fonts/icomoon.svg?t9wejw#icomoon') format('svg');
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
+  @font-face {
+    font-family: "icomoon";
+    src: url("../fonts/icomoon.eot?t9wejw");
+    src:
+      url("../fonts/icomoon.eot?t9wejw#iefix") format("embedded-opentype"),
+      url("../fonts/icomoon.ttf?t9wejw") format("truetype"),
+      url("../fonts/icomoon.woff?t9wejw") format("woff"),
+      url("../fonts/icomoon.svg?t9wejw#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
-	@font-face {
-		font-family: 'busuroma';
-		src: url('../fonts/ITCBusoramaBold.otf') format('opentype');
-		font-weight: normal;
-		font-style: normal;
-		}
+  @font-face {
+    font-family: "busuroma";
+    src: url("../fonts/ITCBusoramaBold.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
 
-		i {
-		/* use !important to prevent issues with browser extensions that change fonts */
-		font-family: 'icomoon' !important;
-		speak: never;
-		font-style: normal;
-		font-weight: normal;
-		font-variant: normal;
-		text-transform: none;
-		line-height: 1;
+  i {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-		/* Better Font Rendering =========== */
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		}
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-		.icon-whatsapp:before {
-		content: "\e901";
-		}
-		.icon-cross-delete:before {
-		content: "\e902";
-		}
-		.icon-arrow-rigth:before {
-		content: "\e904";
-		}
-		.icon-menu-burger:before {
-		content: "\e905";
-		}
-		.icon-instagram:before {
-		content: "\e900";
-		}
-		.icon-facebook:before {
-		content: "\e903";
-		}
+  .icon-whatsapp:before {
+    content: "\e901";
+  }
+  .icon-cross-delete:before {
+    content: "\e902";
+  }
+  .icon-arrow-rigth:before {
+    content: "\e904";
+  }
+  .icon-menu-burger:before {
+    content: "\e905";
+  }
+  .icon-instagram:before {
+    content: "\e900";
+  }
+  .icon-facebook:before {
+    content: "\e903";
+  }
 
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		margin: -1px;
-		padding: 0;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		border: 0;
-	}
-
-	body {
-		font-family: "Poppins", sans-serif;
-	}
+  body {
+    font-family: "Poppins", sans-serif;
+  }
 </style>
-
-
 
 <script
   is:inline

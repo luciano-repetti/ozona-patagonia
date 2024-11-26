@@ -1,51 +1,56 @@
 <div class="bubble-whatsapp">
-    <a href="https://api.whatsapp.com/send?phone=+5492944537882&text=Hola%20que%20tal,%20necesito%20información%20en:" aria-label="Ir al numero de whatsapp" class="link-whatsapp" target="_blank">
-        <i class="icon-whatsapp"></i>
-    </a>
- </div>
+  <a
+    href="https://api.whatsapp.com/send?phone=+5492944712211&text=Hola%20que%20tal,%20necesito%20información%20en:"
+    aria-label="Ir al numero de whatsapp"
+    class="link-whatsapp"
+    target="_blank"
+  >
+    <i class="icon-whatsapp"></i>
+  </a>
+</div>
 
 <style>
+  .bubble-whatsapp {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    padding: 0.5em;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    transition: scale 0.3s ease;
+  }
+
+  .bubble-whatsapp:hover {
+    scale: 1.1;
+  }
+
+  .link-whatsapp {
+    text-decoration: none;
+    color: #25d366;
+  }
+
+  .icon-whatsapp {
+    font-size: 2em;
+  }
+
+  @media (max-width: 790px) {
     .bubble-whatsapp {
-        position: fixed;
-        bottom: 50px;
-        right: 50px;
-        width: 70px;
-        height: 70px;
-        padding: .5em;
-        border-radius: 50%;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-        transition: scale 0.3s ease;
-    }
-
-    .bubble-whatsapp:hover {
-        scale: 1.1;
-    }
-
-    .link-whatsapp {
-        text-decoration: none;
-        color: #25d366;
+      bottom: 40px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      padding: 0.2em;
     }
 
     .icon-whatsapp {
-        font-size: 2em;
+      font-size: 1.5em;
     }
-
-    @media (max-width: 790px) {
-        .bubble-whatsapp {
-            bottom: 40px;
-            right: 10px;
-            width: 50px;
-            height: 50px;
-            padding: .2em;
-        }
-
-        .icon-whatsapp {
-            font-size: 1.5em;
-        }
-    }
+  }
 </style>
