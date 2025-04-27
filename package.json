@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "ozona_patagonia",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.1",
-    "@astrojs/check": "^0.9.3",
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.7.5",
     "typescript": "^5.5.4"
   }
 }

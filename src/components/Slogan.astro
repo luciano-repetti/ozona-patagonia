@@ -4,6 +4,7 @@ import logo from "../assets/logo.jpg";
 
 import sello1 from "../assets/no-test-animal.png";
 import sello2 from "../assets/chica-rosa.png";
+import sello3 from "../assets/logo-marca.webp";
 ---
 
 <section class="slogan-section scrollspy" id="nosotros">
@@ -27,8 +28,9 @@ import sello2 from "../assets/chica-rosa.png";
       Patagonia.
     </p>
     <div class="stamps-container">
-      <Image src={sello2} alt="Sello 1" class="stamp-image" />
-      <Image src={sello1} alt="Sello 2" class="stamp-image" />
+      <Image src={sello1} alt="Sello 1" class="stamp-image" />
+      <Image src={sello3} alt="Sello 3" class="stamp-image xxl" />
+      <Image src={sello2} alt="Sello 2" class="stamp-image" />
     </div>
   </div>
 </section>
@@ -84,14 +86,26 @@ import sello2 from "../assets/chica-rosa.png";
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 4em;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+  .container-stamp-logo {
+    padding: 1rem 2rem;
+    background-color: #ae1c22;
+    border-radius: 50%;
+    overflow: hidden;
   }
   .stamp-image {
     border-radius: 50%;
     width: 100px;
     height: 100px;
-  }
 
+    &.xxl {
+      width: 150px;
+      height: 150px;
+    }
+  }
   @media (max-width: 600px) {
     .logo {
       img {
@@ -109,6 +123,13 @@ import sello2 from "../assets/chica-rosa.png";
 
     .stamps-container {
       padding-bottom: 1em;
+    }
+
+    .stamp-image {
+      &.xxl {
+        width: 100px;
+        height: 100px;
+      }
     }
   }
 </style>
