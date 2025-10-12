@@ -1,37 +1,93 @@
 <>
-<header id="main-menu">
-  <div class="container-header">
-    <a href="#" class="logo" aria-label="Ir a la página principal">Ozona Patagonia</a>
-    <nav>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=local_mall"
+  />
+  <header id="main-menu">
+    <div class="container-header">
+      <a href="#" class="logo" aria-label="Ir a la página principal"
+        >Ozona Patagonia</a
+      >
+      <nav>
+        <ul>
+          <li>
+            <a
+              class="menu-item active"
+              href="#inicio"
+              aria-label="Ir a la página de inicio">Inicio</a
+            >
+          </li>
+          <li>
+            <a
+              class="menu-item"
+              href="#nosotros"
+              aria-label="Ir a la página de nosotros">Nosotros</a
+            >
+          </li>
+          <li>
+            <a
+              class="menu-item"
+              href="#productos-destacados"
+              aria-label="Ir a la página de productos">Productos</a
+            >
+          </li>
+          <li>
+            <a
+              class="menu-item"
+              href="#contacto"
+              aria-label="Ir a la página de contacto">Contacto</a
+            >
+          </li>
+        </ul>
+        <button class="hamburger" aria-label="Abrir menú">
+          <i class="icon-menu-burger"></i>
+        </button>
+      </nav>
+      <a
+        href="https://tienda.ozonapatagonia.com.ar"
+        aria-label="Ir a la página de la tienda"
+        class="button-tienda"
+        target="_blank"
+        ><span class="material-symbols-outlined">local_mall</span>Ir a la tienda</a
+      >
+    </div>
+  </header>
+
+  <div class="container-sidebar">
+    <div class="sidebar" role="navigation" aria-labelledby="sidebar-title">
+      <button class="close-btn" aria-label="Cerrar menú"
+        ><i class="icon-cross-delete"></i></button
+      >
       <ul>
-        <li><a class="menu-item active" href="#inicio" aria-label="Ir a la página de inicio">Inicio</a></li>
-        <li><a class="menu-item" href="#nosotros" aria-label="Ir a la página de nosotros">Nosotros</a></li>
-        <li><a class="menu-item" href="#productos-destacados" aria-label="Ir a la página de productos">Productos</a></li>
-        <li><a class="menu-item" href="#contacto" aria-label="Ir a la página de contacto">Contacto</a></li>
-        <li><a  href="https://tienda.ozonapatagonia.com.ar"  aria-label="Ir a la página de la tienda" class="button-tienda" target="_blank">Ir a la tienda <i class="icon-arrow-rigth"></i></a></li>
+        <li>
+          <a href="#inicio" aria-label="Ir a la página de inicio">Inicio</a>
+        </li>
+        <li>
+          <a href="#nosotros" aria-label="Ir a la página de nosotros"
+            >Nosotros</a
+          >
+        </li>
+        <li>
+          <a
+            href="#productos-destacados"
+            aria-label="Ir a la página de productos">Productos</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://tienda.ozonapatagonia.com.ar/"
+            aria-label="Ir a la página de la tienda"
+            class="button-tienda"
+            ><span class="material-symbols-outlined">local_mall</span>Ir a la
+            tienda</a
+          >
+        </li>
       </ul>
-      <button class="hamburger" aria-label="Abrir menú">
-        <i class="icon-menu-burger"></i>
-      </button>
-    </nav>
+    </div>
   </div>
-</header>
 
-<div class="container-sidebar">
-  <div class="sidebar" role="navigation" aria-labelledby="sidebar-title">
-    <button class="close-btn" aria-label="Cerrar menú"><i class="icon-cross-delete"></i></button>
-    <ul>
-      <li><a href="#inicio" aria-label="Ir a la página de inicio">Inicio</a></li>
-      <li><a href="#nosotros" aria-label="Ir a la página de nosotros">Nosotros</a></li>
-      <li><a href="#productos-destacados" aria-label="Ir a la página de productos">Productos</a></li>
-      <li><a href="#contacto" aria-label="Ir a la página de contacto">Contacto</a></li>
-      <li><a href="https://tienda.ozonapatagonia.com.ar/" aria-label="Ir a la página de la tienda" class="button-tienda">Ir a la tienda <i class="icon-arrow-rigth"></i></a></li>
-    </ul>
-  </div>
-</div>
-
-<!-- Agrega un identificador al título del menú lateral -->
-<h2 id="sidebar-title" class="visually-hidden">Menú lateral</h2>
+  <!-- Agrega un identificador al título del menú lateral -->
+  <h2 id="sidebar-title" class="visually-hidden">Menú lateral</h2>
 </>
 
 <style>
@@ -65,8 +121,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    gap: 2rem;
+    max-width: 1400px;
     margin: 0 auto;
+    position: relative;
   }
 
   .logo {
@@ -74,28 +132,55 @@
     font-weight: bold;
     color: #333;
     text-decoration: none;
+    position: relative;
+    z-index: 2;
   }
 
   nav {
     display: flex;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
   }
 
   nav ul {
     list-style-type: none;
     display: flex;
     align-items: center;
+    gap: 0;
+    position: relative;
+  }
+
+  nav ul::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--border-left, 0);
+    width: var(--border-width, 0);
+    height: 2px;
+    background-color: #b12725;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
   }
 
   nav ul li {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
+  }
+
+  nav ul li:first-child {
+    margin-left: 0;
   }
 
   nav ul li a {
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1em;
+    font-weight: 400;
+    font-size: 1.2em;
     color: #333;
+    padding-bottom: 2px;
+    display: inline-block;
+    transition: color 0.3s ease;
   }
 
   nav ul li a.active {
@@ -105,35 +190,38 @@
   .button-tienda {
     color: #fff !important;
     background-color: #b12725;
-    padding: .5em;
+    padding: 0.5em 1em;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 5px;
-    transition: background-color, scale 0.3s ease;
+    gap: 0.5em;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
     &:hover {
       color: #fff !important;
-      scale: 1.1;
+      transform: scale(1.05);
       background-color: #8e1f1d;
-    }
-    
-    &:active {
-      color: #fff !important;
-      scale: 1.1;
-      background-color: #631212;
+      text-decoration: none;
     }
 
-    &::after {
-      content: '';
+    &:active {
+      color: #fff !important;
+      transform: scale(1.05);
+      background-color: #631212;
+      text-decoration: none;
     }
+  }
+
+  .button-tienda .material-symbols-outlined {
+    font-size: 1.2em;
   }
 
   nav ul li a:hover {
     color: #b12725;
-  }
-
-  nav ul li a:active {
-    color: #631212;
   }
 
   .hamburger {
@@ -153,7 +241,7 @@
     position: fixed;
     top: 0;
     visibility: hidden;
-    background-color: rgba(0,0,0,.35);
+    background-color: rgba(0, 0, 0, 0.35);
     z-index: 16;
   }
 
@@ -165,14 +253,15 @@
     position: fixed;
     z-index: 150;
     top: 0;
-    right: -250px;
-    min-width: 250px;
+    right: -100%;
+    width: 100%;
+    max-width: 320px;
     height: 100vh;
-    background-color: #f8f8f8;
-    transition: 0.4s;
-    padding-top: 2em;
-    padding: 1rem;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem 1.5rem;
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
   }
 
   .sidebar.active {
@@ -181,36 +270,130 @@
 
   .sidebar ul {
     list-style-type: none;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .sidebar ul li {
-    margin-bottom: 1rem;
+    transform: translateX(30px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar.active ul li {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .sidebar.active ul li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .sidebar.active ul li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+
+  .sidebar.active ul li:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+
+  .sidebar.active ul li:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+
+  .sidebar.active ul li:nth-child(5) {
+    transition-delay: 0.3s;
   }
 
   .sidebar ul li a {
     text-decoration: none;
     color: #333;
-    font-weight: 600;
-    font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
   }
-  
+
+  .sidebar ul li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #b12725;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar ul li a:hover {
+    background-color: rgba(177, 39, 37, 0.08);
+    transform: translateX(8px);
+  }
+
   .sidebar ul li a.active {
     color: #b12725;
+    font-weight: 700;
+    background-color: rgba(177, 39, 37, 0.1);
+  }
+
+  .sidebar ul li a.active::before {
+    transform: scaleY(1);
   }
 
   .close-btn {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
     border: none;
-    font-size: 1.5rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
     cursor: pointer;
+    transition: all 0.2s ease;
+    color: #333;
+  }
+
+  .close-btn:hover {
+    color: #b12725;
+    transform: scale(1.1);
+  }
+
+  .close-btn:active {
+    transform: scale(0.95);
   }
 
   @media (max-width: 790px) {
+    .container-header {
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    nav {
+      position: static;
+      transform: none;
+      justify-content: flex-end;
+    }
+
     nav ul {
+      display: none;
+    }
+
+    .container-header > .button-tienda {
       display: none;
     }
 
@@ -218,15 +401,41 @@
       display: flex;
     }
 
-    .button-tienda {
-      margin-top: 1em;
+    .sidebar .button-tienda {
+      margin-top: 2em;
       width: 100%;
       justify-content: center;
-      padding: .2em;
+      padding: 1em;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(177, 39, 37, 0.3);
       &:hover {
-        scale: 1.05;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(177, 39, 37, 0.4);
+      }
+      &:active {
+        transform: translateY(0);
+      }
     }
   }
+
+  @media (max-width: 1024px) {
+    .container-header {
+      gap: 2rem;
+    }
+
+    nav ul li {
+      margin-left: 0.7rem;
+    }
+
+    nav ul li a {
+      font-size: 1em;
+    }
+
+    .button-tienda {
+      padding: 0.4em 0.8em;
+      font-size: 0.95em;
+    }
   }
 </style>
 
@@ -264,5 +473,56 @@
         container_sidebar.classList.remove("active");
       }
     }
+  });
+
+  // Animated border for nav links
+  const navUl = document.querySelector("nav ul");
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  function updateActiveBorder() {
+    const activeLink = document.querySelector("nav ul li a.active");
+    if (activeLink && navUl) {
+      const linkRect = (activeLink as HTMLElement).getBoundingClientRect();
+      const ulRect = navUl.getBoundingClientRect();
+
+      const left = linkRect.left - ulRect.left;
+      const width = linkRect.width;
+
+      (navUl as HTMLElement).style.setProperty("--border-left", `${left}px`);
+      (navUl as HTMLElement).style.setProperty("--border-width", `${width}px`);
+    }
+  }
+
+  // Update on load
+  updateActiveBorder();
+
+  // Update on resize
+  window.addEventListener("resize", updateActiveBorder);
+
+  // Update on click
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      updateActiveBorder();
+    });
+  });
+
+  // Observer para detectar cambios de clase "active" (para el detector de secciones)
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        updateActiveBorder();
+      }
+    });
+  });
+
+  // Observar cada link del nav
+  navLinks.forEach((link) => {
+    observer.observe(link, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
   });
 </script>
