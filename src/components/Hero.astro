@@ -4,151 +4,262 @@ import bgHero from "../assets/bg-hero.webp";
 ---
 
 <div class="hero scrollspy" id="inicio">
-    <div class="hero-bg-container">
-        <Image src={bgHero} alt="Fondo de la hero" class="hero-bg"/>
-    </div>
-    <section class="hero-content">
-        <h1 class="hero-title">OZONA PATAGONIA</h1>
-        <h2 class="hero-subtitle">COSMÉTICA GOURMET</h2>
-        <a href="https://tienda.ozonapatagonia.com.ar/" aria-label="Ir a la página de la tienda" class="hero-button">Visita nuestra tienda web</a>
-    </section>
+  <div class="hero-bg-container">
+    <Image src={bgHero} alt="Fondo de la hero" class="hero-bg" />
+  </div>
+  <section class="hero-content">
+    <h1 class="hero-title">
+      <span class="typewriter">OZONA PATAGONIA</span>
+    </h1>
+    <h2 class="hero-subtitle">
+      <span class="typewriter">COSMÉTICA GOURMET</span>
+    </h2>
+    <a
+      href="https://tienda.ozonapatagonia.com.ar/"
+      aria-label="Ir a la página de la tienda"
+      class="hero-button">Visita nuestra tienda web</a
+    >
+  </section>
 </div>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-        font-family: Arial, sans-serif;
-    }
+  body {
+    font-family: Arial, sans-serif;
+  }
 
-    .hero {
-        background-color: #c62828;
-        position: relative;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 50% 100%, 0 calc(100% - 100px));
-    }
+  .hero {
+    background-color: #c62828;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    .hero-bg-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        overflow: hidden;
-    }
+  .hero-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
 
-    .hero-bg {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  .hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    .hero-bg-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-        opacity: 0; /* Ocultamos inicialmente */
-        transition: opacity 0.5s ease; /* Transición suave */
-    }
+  .hero-bg-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
 
-    .hero-bg-container.loaded::before {
-        opacity: 1; /* Se muestra después de cargar la imagen */
-    }
+  .hero-bg-container.loaded::before {
+    opacity: 1;
+  }
 
-    .hero-content {
-        text-align: center;
-        color: white;
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        padding: 20px;
-    }
+  .hero-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
 
+  /* ---------- TÍTULO PRINCIPAL ---------- */
+
+  .hero-title {
+    font-family: "busuroma", sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+  }
+
+  .hero-title .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid white;
+    letter-spacing: 0.12em;
+    width: 0;
+    animation:
+      typingSmooth 1.6s ease-out forwards,
+      blink-caret 0.7s step-end 2,
+      remove-caret 0.2s ease-out 1.6s forwards;
+  }
+
+  /* ---------- SUBTÍTULO ---------- */
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    display: block;
+    width: fit-content;
+    opacity: 0;
+    animation: fade-in 0.4s 1.6s forwards;
+  }
+
+  .hero-subtitle .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid white;
+    letter-spacing: 0.12em;
+    width: 0;
+    animation:
+      typingSmooth 1.4s ease-out 1.6s forwards,
+      blink-caret 0.7s step-end 2 1.6s,
+      remove-caret 0.2s ease-out 3s forwards;
+  }
+
+  /* ---------- BOTÓN ---------- */
+
+  .hero-button {
+    display: inline-block;
+    background-color: #c62828;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slide-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 3.2s forwards;
+  }
+
+  /* ---------- ANIMACIONES ---------- */
+
+  @keyframes typingSmooth {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: white;
+    }
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  @keyframes remove-caret {
+    to {
+      border-right-width: 0;
+      margin-left: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------- EFECTOS HOVER ---------- */
+
+  .hero-button:hover {
+    background-color: #8e1f1d;
+    transform: scale(1.05);
+  }
+
+  .hero-button:active {
+    background-color: #631212;
+    transform: scale(1.05);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #fff;
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+    vertical-align: middle;
+    transition: width 0.2s ease;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  @media (max-width: 600px) {
     .hero-title {
-        font-family: 'busuroma', sans-serif;
-        font-size: 3rem;
-        margin-bottom: 1rem;
+      font-size: 2rem;
     }
-
     .hero-subtitle {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
+      font-size: 1.2rem;
     }
-
-    .hero-button {
-        display: inline-block;
-        background-color: #c62828;
-        border-radius: 8px;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.3s ease, scale 0.3s ease;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4); /* Sombra más fuerte para resaltar */
-    }
-
-    .hero-button:hover {
-        background-color: #8e1f1d;
-        scale: 1.1;
-    }
-
-    .hero-button:active {
-        background-color: #631212;
-        scale: 1.1;
-    }
-
-    @media (max-width: 600px) {
-        .hero {
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 50% 100%, 0 calc(100% - 50px));
-        }
-    }
-
-    /* @media not all and (min-resolution: 0.001dpcm) and (min-resolution: -webkit-min-device-pixel-ratio: 0) {
-        .hero-bg-container {
-            position: absolute;
-        }
-    } */
-    
+  }
 </style>
 
 <script>
-    // Seleccionar la imagen y el contenedor de fondo
-    const heroBg = document.querySelector('.hero-bg') as HTMLImageElement | null;
-    const heroBgContainer = document.querySelector('.hero-bg-container') as HTMLElement | null;
+  // Seleccionar la imagen y el contenedor de fondo
+  const heroBg = document.querySelector(".hero-bg") as HTMLImageElement | null;
+  const heroBgContainer = document.querySelector(
+    ".hero-bg-container"
+  ) as HTMLElement | null;
 
-    // Verificar si ambos elementos existen antes de continuar
-    if (heroBg && heroBgContainer) {
-        // Función para agregar la clase 'loaded' al contenedor
-        const addLoadedClass = () => {
-            heroBgContainer.classList.add('loaded');
-        };
+  // Verificar si ambos elementos existen antes de continuar
+  if (heroBg && heroBgContainer) {
+    // Función para agregar la clase 'loaded' al contenedor
+    const addLoadedClass = () => {
+      heroBgContainer.classList.add("loaded");
+    };
 
-        // Esperar a que la imagen cargue
-        heroBg.onload = () => {
-            addLoadedClass();
-        };
+    // Esperar a que la imagen cargue
+    heroBg.onload = () => {
+      addLoadedClass();
+    };
 
-        // Verificar si la imagen está en caché (ya cargada)
-        if (heroBg.complete) {
-            addLoadedClass();  // Ejecutar directamente la función si la imagen ya está cargada
-        }
-    } else {
-        console.error("No se encontraron los elementos de la imagen o el contenedor de fondo.");
+    // Verificar si la imagen está en caché (ya cargada)
+    if (heroBg.complete) {
+      addLoadedClass(); // Ejecutar directamente la función si la imagen ya está cargada
     }
+  } else {
+    console.error(
+      "No se encontraron los elementos de la imagen o el contenedor de fondo."
+    );
+  }
 </script>
