@@ -20,6 +20,37 @@ import bgHero from "../assets/bg-hero.webp";
       class="hero-button">Visita nuestra tienda web</a
     >
   </section>
+
+  <div class="scroll-indicator-single">
+    <div class="chevron-sequential">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        class="chevron-svg"
+      >
+        <path
+          d="M4 10 L16 22 L28 10"
+          fill="none"
+          stroke="#fff"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        class="chevron-svg"
+      >
+        <path
+          d="M4 10 L16 22 L28 10"
+          fill="none"
+          stroke="#fff"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -44,7 +75,7 @@ import bgHero from "../assets/bg-hero.webp";
   }
 
   .hero-bg-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -222,6 +253,78 @@ import bgHero from "../assets/bg-hero.webp";
     transition: width 0.2s ease;
   }
 
+  /* ---------- SCROLL INDICATOR SEQUENTIAL ---------- */
+
+  .scroll-indicator-single {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0;
+    animation: fade-in-indicator 1s 3.8s ease-out forwards;
+    cursor: pointer;
+  }
+
+  .chevron-sequential {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  }
+
+  .chevron-svg {
+    width: 36px;
+    height: 36px;
+    opacity: 0;
+    transform: scale(0.85);
+    animation: chevron-pulse 1.8s ease-in-out infinite;
+  }
+
+  .chevron-svg:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .chevron-svg:nth-child(2) {
+    margin-top: -6px;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes chevron-pulse {
+    0% {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    20% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1);
+    }
+    80% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+  }
+
+  @keyframes fade-in-indicator {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   /* ---------- RESPONSIVE ---------- */
 
   @media (max-width: 600px) {
@@ -230,6 +333,32 @@ import bgHero from "../assets/bg-hero.webp";
     }
     .hero-subtitle {
       font-size: 1.2rem;
+    }
+
+    .scroll-indicator-single {
+      bottom: 40px;
+    }
+
+    .chevron-sequential {
+      width: 40px;
+      height: 45px;
+    }
+
+    .chevron-svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .chevron-svg:nth-child(1) {
+      top: 0;
+    }
+
+    .chevron-svg:nth-child(2) {
+      top: 12px;
+    }
+
+    .chevron-svg path {
+      stroke-width: 2.5;
     }
   }
 </style>
@@ -261,5 +390,16 @@ import bgHero from "../assets/bg-hero.webp";
     console.error(
       "No se encontraron los elementos de la imagen o el contenedor de fondo."
     );
+  }
+
+  // Funcionalidad del scroll indicator
+  const scrollIndicator = document.querySelector(".scroll-indicator-single");
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener("click", () => {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth",
+      });
+    });
   }
 </script>
