@@ -8,128 +8,282 @@ import sello3 from "../assets/logo-marca.webp";
 ---
 
 <section class="slogan-section scrollspy" id="nosotros">
-  <div class="logo">
-    <Image src={logo} width={300} height={200} alt="Ozona Patagonia Logo" />
-  </div>
-  <h2>Nuestra marca</h2>
-  <div class="container-text">
-    <p class="hero-text">
-      Para Ozona, promover y facilitar la belleza no es solo referirnos a la
-      belleza de la piel y el cuerpo. Somos la expresión de nuestras células en
-      contacto constante con los otros y con el medio ambiente. Compartiendo las
-      emociones que nos suceden cada día. Nuestra filosofía fitoterapéutica está
-      basada en la preservación del ser humano como integridad junto con su
-      entorno. Defendiendo juntos la biodiversidad. Conspirando para la vida....
-      Por el bien común.
-    </p>
-    <p class="hero-text">
-      Toda la materia prima es de nuestra región y cuenta con propiedades
-      dermatológicas. No queremos parecer de la Patagonia, sino que somos de la
-      Patagonia.
-    </p>
-    <div class="stamps-container">
-      <Image src={sello1} alt="Sello 1" class="stamp-image" />
-      <Image src={sello3} alt="Sello 3" class="stamp-image xxl" />
-      <Image src={sello2} alt="Sello 2" class="stamp-image" />
+  <div class="content-wrapper">
+    <h2 class="section-title">Nuestra marca</h2>
+
+    <div class="logo-container">
+      <Image
+        src={logo}
+        width={300}
+        height={200}
+        alt="Ozona Patagonia Logo"
+        class="main-logo"
+      />
+    </div>
+
+    <div class="container-text">
+      <p class="hero-text">
+        Para Ozona, promover y facilitar la belleza no es solo referirnos a la
+        belleza de la piel y el cuerpo. Somos la expresión de nuestras células
+        en contacto constante con los otros y con el medio ambiente.
+        Compartiendo las emociones que nos suceden cada día. Nuestra filosofía
+        fitoterapéutica está basada en la preservación del ser humano como
+        integridad junto con su entorno. Defendiendo juntos la biodiversidad.
+        Conspirando para la vida.... Por el bien común.
+      </p>
+      <p class="hero-text">
+        Toda la materia prima es de nuestra región y cuenta con propiedades
+        dermatológicas. No queremos parecer de la Patagonia, sino que somos de
+        la Patagonia.
+      </p>
+    </div>
+
+    <div class="certifications">
+      <h3 class="certifications-title">Nuestros valores</h3>
+      <div class="stamps-grid">
+        <div class="stamp-card">
+          <div class="stamp-icon">
+            <Image src={sello1} alt="No testeado en animales" />
+          </div>
+          <p class="stamp-text">Libre de crueldad animal</p>
+        </div>
+
+        <div class="stamp-card featured">
+          <div class="stamp-icon large">
+            <Image src={sello3} alt="Marca registrada" />
+          </div>
+          <p class="stamp-text">Marca registrada Patagonia</p>
+        </div>
+
+        <div class="stamp-card">
+          <div class="stamp-icon">
+            <Image src={sello2} alt="Cosmética natural" />
+          </div>
+          <p class="stamp-text">Cosmética consciente</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .slogan-section {
-    box-sizing: content-box;
+    box-sizing: border-box;
     width: 100%;
     min-height: 92svh;
     background-color: #c62828;
     margin-top: -100px;
-    padding-top: 100px;
+    padding: 100px 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-  }
-
-  .slogan-section {
     color: #fff;
   }
 
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 50%;
-    padding: 1em;
-    margin-top: 2em;
-    background-color: #ad2623;
-    img {
-      width: 300px;
-      height: auto;
+  .logo-container {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
     }
+  }
+
+  .main-logo {
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .container-text {
     max-width: 800px;
     text-align: center;
-    padding-bottom: 2em;
+    padding: 0 1rem;
   }
 
   .hero-text {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    line-height: 1.5;
+    line-height: 1.8;
     color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  .stamps-container {
+  .certifications {
     width: 100%;
+    max-width: 1000px;
+    padding: 0 1rem;
+  }
+
+  .certifications-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 2.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .stamps-grid {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 2em;
+    gap: 2rem;
     flex-wrap: wrap;
   }
-  .container-stamp-logo {
-    padding: 1rem 2rem;
-    background-color: #ae1c22;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .stamp-image {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
 
-    &.xxl {
-      width: 150px;
-      height: 150px;
-    }
-  }
-  @media (max-width: 600px) {
-    .logo {
-      img {
-        width: 200px;
-      }
+  .stamp-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    width: 250px;
+    max-width: 250px;
+
+    &:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .container-text {
-      padding: 0 1em;
+    &.featured {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .stamp-icon {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0.5rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &.large {
+      width: 175px;
+      height: 175px;
+    }
+  }
+
+  .stamp-text {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 768px) {
+    .slogan-section {
+      padding: 100px 1rem;
+    }
+
+    .logo-container {
+      padding: 0.75rem;
+    }
+
+    .main-logo {
+      width: 160px;
+    }
+
+    .section-title {
+      font-size: 2rem;
     }
 
     .hero-text {
-      font-size: 1.1em;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
 
-    .stamps-container {
-      padding-bottom: 1em;
+    .certifications-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .stamp-image {
-      &.xxl {
-        width: 100px;
-        height: 100px;
+    .stamps-grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .stamp-card {
+      padding: 0.875rem 0.625rem;
+      width: 100%;
+      max-width: 250px;
+    }
+
+    .stamp-icon {
+      width: 120px;
+      height: 120px;
+
+      &.large {
+        width: 140px;
+        height: 140px;
       }
+    }
+
+    .stamp-text {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .certifications-title {
+      font-size: 1.3rem;
     }
   }
 </style>
