@@ -157,20 +157,6 @@
     position: relative;
   }
 
-  nav ul::after {
-    content: "";
-    position: absolute;
-    bottom: 8px;
-    left: var(--border-left, 0);
-    width: var(--border-width, 0);
-    height: 2px;
-    background: linear-gradient(90deg, #b12725 0%, #d63230 100%);
-    border-radius: 2px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-    box-shadow: 0 0 8px rgba(177, 39, 37, 0.3);
-  }
-
   nav ul li {
     position: relative;
   }
@@ -181,10 +167,26 @@
     font-size: 1rem;
     color: #64748b;
     padding: 0.625rem 1rem;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     border-radius: 8px;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+  }
+
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: linear-gradient(90deg, #b12725 0%, #d63230 100%);
+    border-radius: 2px;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(177, 39, 37, 0.3);
   }
 
   nav ul li a:hover {
@@ -195,6 +197,11 @@
   nav ul li a.active {
     color: #b12725;
     font-weight: 600;
+  }
+
+  nav ul li a.active::after {
+    opacity: 1;
+    transform: scaleX(1);
   }
 
   .button-tienda {
@@ -531,50 +538,4 @@
     }
   });
 
-  // Animated border for nav links
-  const navUl = document.querySelector("nav ul");
-  const navLinks = document.querySelectorAll("nav ul li a");
-
-  function updateActiveBorder() {
-    const activeLink = document.querySelector("nav ul li a.active");
-    if (activeLink && navUl) {
-      const linkRect = (activeLink as HTMLElement).getBoundingClientRect();
-      const ulRect = navUl.getBoundingClientRect();
-
-      // Adjust to use ~80% of the width with padding offset
-      const paddingOffset = 12; // Offset from each side
-      const left = linkRect.left - ulRect.left + paddingOffset;
-      const width = linkRect.width - paddingOffset * 2;
-
-      (navUl as HTMLElement).style.setProperty("--border-left", `${left}px`);
-      (navUl as HTMLElement).style.setProperty("--border-width", `${width}px`);
-    }
-  }
-
-  updateActiveBorder();
-  window.addEventListener("resize", updateActiveBorder);
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      updateActiveBorder();
-    });
-  });
-
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (
-        mutation.type === "attributes" &&
-        mutation.attributeName === "class"
-      ) {
-        updateActiveBorder();
-      }
-    });
-  });
-
-  navLinks.forEach((link) => {
-    observer.observe(link, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-  });
 </script>
