@@ -1,0 +1,449 @@
+---
+// Puntos de venta organizados por ciudad
+const salesPoints = [
+  {
+    city: "Bariloche",
+    region: "Río Negro",
+    points: [
+      {
+        name: "Free shop MDV",
+        address: "Av San Martín 195 Local 5",
+      },
+      {
+        name: "El Coihue Almacén Artesanal",
+        address: "Av Exequiel Bustillo 15.500",
+      },
+      {
+        name: "Spa Hotel Villa Huinid",
+        address: "",
+      },
+      {
+        name: "La Candela Aeropuerto",
+        address: "",
+      },
+      {
+        name: "Marina Beatrice Studio",
+        address: "9 de Julio 268",
+      },
+    ],
+  },
+  {
+    city: "Dina Huapi",
+    region: "Río Negro",
+    points: [
+      {
+        name: "Lugar del Sol",
+        address: "Estados Unidos 494",
+      },
+      {
+        name: "Farmacia Limay",
+        address: "Salvador 118",
+      },
+    ],
+  },
+  {
+    city: "Villa La Angostura",
+    region: "Neuquén",
+    points: [
+      {
+        name: "Farmacia de la Montaña",
+        address: "Av Arrayanes 207",
+      },
+    ],
+  },
+  {
+    city: "Buenos Aires",
+    region: "Zona Norte y Oeste",
+    points: [
+      {
+        name: "Bio Vista Natura Market Saludable Paseo Los Berros",
+        address: "Mayor Irusta 2921, Bella Vista",
+      },
+      {
+        name: "Aromas",
+        address: "Rodríguez Peña 1225, San Miguel",
+      },
+      {
+        name: "Jessy Estilistas",
+        address: "Sto. Cabral 1106, San Miguel",
+      },
+      {
+        name: "Farmacia Iannone",
+        address: "Zapiola 4895, José C. Paz",
+      },
+      {
+        name: "Bella Vista Spa Estética",
+        address: "Av. Francia 895, Bella Vista",
+      },
+    ],
+  },
+];
+---
+
+<div class="sales-points scrollspy" id="puntos-de-venta">
+  <section class="container">
+    <div class="header-section">
+      <h2 class="section-title">Puntos de Venta</h2>
+      <p class="section-subtitle">
+        Encuentra nuestros productos en las mejores tiendas de Argentina
+      </p>
+    </div>
+
+    <div class="cities-grid">
+      {
+        salesPoints.map((location) => (
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="city-info">
+                <h3 class="city-name">{location.city}</h3>
+                <span class="city-region">{location.region}</span>
+              </div>
+            </div>
+
+            <ul class="points-list">
+              {location.points.map((point) => (
+                <li class="point-item">
+                  <div class="point-marker" />
+                  <div class="point-details">
+                    <h4 class="point-name">{point.name}</h4>
+                    {point.address && (
+                      <p class="point-address">{point.address}</p>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</div>
+
+<style>
+  .sales-points {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sales-points::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(177, 39, 37, 0.1) 50%,
+      transparent 100%
+    );
+  }
+
+  .container {
+    max-width: 1400px;
+    padding: 0 2rem;
+    margin: 0 auto;
+  }
+
+  .header-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #b12725 0%, #d63230 100%);
+    border-radius: 2px;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    margin-top: 1.5rem;
+    font-weight: 400;
+  }
+
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    animation: fadeIn 1s ease-out 0.2s both;
+  }
+
+  .city-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.04),
+      0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .city-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #b12725 0%, #d63230 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .city-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      0 8px 24px rgba(177, 39, 37, 0.12);
+  }
+
+  .city-card:hover::before {
+    opacity: 1;
+  }
+
+  .city-header {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .city-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #b12725 0%, #d63230 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(177, 39, 37, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .city-card:hover .city-icon {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 4px 12px rgba(177, 39, 37, 0.3);
+  }
+
+  .city-icon svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+
+  .city-info {
+    flex: 1;
+  }
+
+  .city-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .city-region {
+    font-size: 0.8125rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .point-item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.875rem;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .point-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #b12725 0%, #d63230 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .point-item:hover::before {
+    opacity: 1;
+  }
+
+  .point-item:hover {
+    background-color: rgba(177, 39, 37, 0.02);
+    border-color: rgba(177, 39, 37, 0.15);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .point-marker {
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, #b12725 0%, #d63230 100%);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+    box-shadow: 0 0 0 2px rgba(177, 39, 37, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .point-item:hover .point-marker {
+    transform: scale(1.4);
+    box-shadow: 0 0 0 4px rgba(177, 39, 37, 0.25);
+  }
+
+  .point-details {
+    flex: 1;
+  }
+
+  .point-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.4;
+  }
+
+  .point-address {
+    font-size: 0.8125rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Animaciones */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .cities-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sales-points {
+      padding: 3rem 0;
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+    }
+
+    .cities-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .city-card {
+      padding: 1.5rem;
+    }
+
+    .city-name {
+      font-size: 1.25rem;
+    }
+
+    .header-section {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .city-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .city-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+</style>
