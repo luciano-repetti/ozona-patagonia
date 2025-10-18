@@ -41,7 +41,7 @@
         aria-label="Ir a la página de la tienda"
         class="button-tienda"
         target="_blank"
-        ><span class="material-symbols-outlined">local_mall</span>Ir a la tienda</a
+        ><span class="material-symbols-outlined">local_mall</span><span>Ir a la tienda</span></a
       >
     </div>
   </header>
@@ -71,8 +71,8 @@
             href="https://tienda.ozonapatagonia.com.ar/"
             aria-label="Ir a la página de la tienda"
             class="button-tienda"
-            ><span class="material-symbols-outlined">local_mall</span>Ir a la
-            tienda</a
+            ><span class="material-symbols-outlined">local_mall</span><span>Ir a la
+            tienda</span></a
           >
         </li>
       </ul>
@@ -234,6 +234,7 @@
     background: linear-gradient(135deg, #d63230 0%, #a82523 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 0;
   }
 
   .button-tienda:hover::before {
@@ -254,7 +255,8 @@
       0 1px 3px rgba(177, 39, 37, 0.1);
   }
 
-  .button-tienda span {
+  .button-tienda span,
+  .button-tienda .material-symbols-outlined {
     position: relative;
     z-index: 1;
   }
