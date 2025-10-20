@@ -1,0 +1,451 @@
+---
+import { Image } from "astro:assets";
+
+// Importar banners de líneas
+import lineaAceiteCorporal from "../assets/products/aceite_corporal/linea-aceite-corporal.webp";
+import lineaAceiteRosaMosqueta from "../assets/products/aceite_rosa_mosqueta/linea-aceite-rosa-mosqueta.webp";
+import lineaFragancias from "../assets/products/fragancias/linea-fragancias.webp";
+import lineaRosaMosqueta from "../assets/products/rosa_mosqueta/linea-rosa-mosqueta.webp";
+
+// Importar productos - Aceites Corporales
+import aceiteCorporalChocolate from "../assets/products/aceite_corporal/aceite-corporal-chocolate.webp";
+import aceiteCorporalLavanda from "../assets/products/aceite_corporal/aceite-corporal-lavanda.webp";
+import aceiteCorporalRosaMosqueta from "../assets/products/aceite_corporal/aceite-corporal-rosa-mosqueta.webp";
+import aceiteCorporalUva from "../assets/products/aceite_corporal/aceite-corporal-uva.webp";
+
+// Importar productos - Aceites Rosa Mosqueta
+import aceiteMosqueta12 from "../assets/products/aceite_rosa_mosqueta/aceite-mosqueta-12.webp";
+import aceiteMosqueta25 from "../assets/products/aceite_rosa_mosqueta/aceite-mosqueta-25.webp";
+import aceiteMosqueta55 from "../assets/products/aceite_rosa_mosqueta/aceite-mosqueta-55.webp";
+
+// Importar productos - Fragancias
+import fraganciaAraucaria from "../assets/products/fragancias/fragancia-araucaria.webp";
+import fraganciaCalafate from "../assets/products/fragancias/fragancia-calafate.webp";
+import fraganciaLavanda from "../assets/products/fragancias/fragancia-lavanda.webp";
+import fraganciaLlaoLlao from "../assets/products/fragancias/fragancia-llao-llao.webp";
+import fragmentciaManzanilla from "../assets/products/fragancias/fragancia-manzanilla.webp";
+import fraganciaRosaMosqueta from "../assets/products/fragancias/fragancia-rosa-mosqueta.webp";
+
+// Importar productos - Rosa Mosqueta
+import aguaMicelar from "../assets/products/rosa_mosqueta/agua-micelar.webp";
+import contornoOjos from "../assets/products/rosa_mosqueta/contorno-de-ojos.webp";
+import cremaCorporal from "../assets/products/rosa_mosqueta/crema-corporal.webp";
+import cremaManos from "../assets/products/rosa_mosqueta/crema-para-manos.webp";
+import cremaAntiage from "../assets/products/rosa_mosqueta/ozona-crema-antiage.webp";
+
+const productLines = [
+  {
+    id: "rosa-mosqueta",
+    nombre: "Rosa Mosqueta",
+    banner: lineaRosaMosqueta,
+    productos: [
+      { nombre: "Agua Micelar", imagen: aguaMicelar, enlace: "" },
+      { nombre: "Contorno de Ojos", imagen: contornoOjos, enlace: "" },
+      { nombre: "Crema Corporal", imagen: cremaCorporal, enlace: "" },
+      { nombre: "Crema para Manos", imagen: cremaManos, enlace: "" },
+      { nombre: "Ozona Crema Antiage", imagen: cremaAntiage, enlace: "" },
+    ],
+  },
+  {
+    id: "aceites-rosa-mosqueta",
+    nombre: "Aceites Rosa Mosqueta",
+    banner: lineaAceiteRosaMosqueta,
+    productos: [
+      { nombre: "Aceite Mosqueta 12ml", imagen: aceiteMosqueta12, enlace: "" },
+      { nombre: "Aceite Mosqueta 25ml", imagen: aceiteMosqueta25, enlace: "" },
+      { nombre: "Aceite Mosqueta 55ml", imagen: aceiteMosqueta55, enlace: "" },
+    ],
+  },
+  {
+    id: "aceites-corporales",
+    nombre: "Aceites Corporales",
+    banner: lineaAceiteCorporal,
+    productos: [
+      { nombre: "Aceite Corporal Chocolate", imagen: aceiteCorporalChocolate, enlace: "" },
+      { nombre: "Aceite Corporal Lavanda", imagen: aceiteCorporalLavanda, enlace: "" },
+      { nombre: "Aceite Corporal Rosa Mosqueta", imagen: aceiteCorporalRosaMosqueta, enlace: "" },
+      { nombre: "Aceite Corporal Uva", imagen: aceiteCorporalUva, enlace: "" },
+    ],
+  },
+  {
+    id: "fragancias",
+    nombre: "Fragancias",
+    banner: lineaFragancias,
+    productos: [
+      { nombre: "Fragancia Araucaria", imagen: fraganciaAraucaria, enlace: "" },
+      { nombre: "Fragancia Calafate", imagen: fraganciaCalafate, enlace: "" },
+      { nombre: "Fragancia Lavanda", imagen: fraganciaLavanda, enlace: "" },
+      { nombre: "Fragancia Llao Llao", imagen: fraganciaLlaoLlao, enlace: "" },
+      { nombre: "Fragancia Manzanilla", imagen: fragmentciaManzanilla, enlace: "" },
+      { nombre: "Fragancia Rosa Mosqueta", imagen: fraganciaRosaMosqueta, enlace: "" },
+    ],
+  },
+];
+---
+
+<div class="product-lines" id="nuestros-productos">
+  <section class="container">
+    <h2 class="section-title">Nuestros Productos</h2>
+
+    <!-- Botones de pestañas -->
+    <div class="tabs-container">
+      {productLines.map((line, index) => (
+        <button
+          class={`tab-button ${index === 0 ? 'active' : ''}`}
+          data-tab={line.id}
+        >
+          {line.nombre}
+        </button>
+      ))}
+    </div>
+
+    <!-- Contenido de cada línea -->
+    {productLines.map((line, index) => (
+      <div class={`tab-content ${index === 0 ? 'active' : ''}`} data-content={line.id}>
+        <!-- Banner de la línea -->
+        <div class="banner-container">
+          <Image
+            src={line.banner}
+            alt={`Línea ${line.nombre}`}
+            class="line-banner"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="banner-overlay">
+            <h2 class="banner-title">{line.nombre}</h2>
+          </div>
+        </div>
+
+        <!-- Grid de productos -->
+        <div class="product-grid">
+          {line.productos.map((producto) => (
+            <div class="product-card">
+              <a href={producto.enlace || "#"} class="product-link">
+                <Image
+                  src={producto.imagen}
+                  alt={producto.nombre}
+                  class="product-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="product-overlay">
+                  <h3 class="product-name">{producto.nombre}</h3>
+                  <span class="product-button">Comprar en Tienda</span>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+
+        // Remover clase active de todos los botones y contenidos
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Agregar clase active al botón clickeado y su contenido correspondiente
+        button.classList.add('active');
+        const activeContent = document.querySelector(`.tab-content[data-content="${tabId}"]`);
+        if (activeContent) {
+          activeContent.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .product-lines {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 4rem 1rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+
+  /* Estilos de las pestañas */
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #f8f8f8;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tab-button:hover {
+    background-color: #f0f0f0;
+    border-color: #dc2625;
+  }
+
+  .tab-button.active {
+    background-color: #dc2625;
+    color: white;
+    border-color: #dc2625;
+  }
+
+  .tab-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Contenido de las pestañas */
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Banner de la línea */
+  .banner-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .line-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banner-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Grid de productos */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    transition: all 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    transition: all 0.4s ease;
+  }
+
+  .product-card:hover .product-overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease;
+    transform: translateY(0);
+  }
+
+  .product-card:hover .product-name {
+    transform: translateY(-40px);
+  }
+
+  .product-button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateY(50px);
+    background-color: #dc2625;
+    color: white;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+    white-space: nowrap;
+    max-width: calc(100% - 2rem);
+  }
+
+  .product-card:hover .product-button {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) translateY(20px);
+  }
+
+  .product-button:hover {
+    background-color: #b71c1c;
+  }
+
+  .product-button:active {
+    background-color: #631212;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .tabs-container {
+      gap: 0.5rem;
+    }
+
+    .tab-button {
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .banner-container {
+      height: 200px;
+    }
+
+    .banner-title {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      transform: translateY(-30px);
+    }
+
+    .product-button {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) translateY(15px);
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tabs-container {
+      flex-direction: column;
+    }
+
+    .tab-button {
+      width: 100%;
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
