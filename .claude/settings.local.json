@@ -3,7 +3,9 @@
     "allow": [
       "Bash(dir:*)",
       "Bash(npm run build:*)",
-      "Bash(copy \"c:\\Users\\lucia\\Desktop\\ozona\\src\\assets\\logo.jpg\" \"c:\\Users\\lucia\\Desktop\\ozona\\public\\logo.jpg\")"
+      "Bash(copy \"c:\\Users\\lucia\\Desktop\\ozona\\src\\assets\\logo.jpg\" \"c:\\Users\\lucia\\Desktop\\ozona\\public\\logo.jpg\")",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm run build:*)"
     ],
     "deny": [],
     "ask": []
