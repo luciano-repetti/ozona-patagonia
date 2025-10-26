@@ -24,7 +24,15 @@
     align-items: center;
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    transition: scale 0.3s ease;
+    transition: scale 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+    z-index: 1000;
+  }
+
+  .bubble-whatsapp.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 
   .bubble-whatsapp:hover {
@@ -54,3 +62,34 @@
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bubbleWhatsapp = document.querySelector('.bubble-whatsapp') as HTMLElement | null;
+    const heroBgContainer = document.querySelector('.hero-bg-container') as HTMLElement | null;
+
+    if (!bubbleWhatsapp) return;
+
+    // Función para mostrar el botón de WhatsApp
+    const showWhatsappButton = () => {
+      bubbleWhatsapp.classList.add('show');
+    };
+
+    // Si existe el hero, esperar a que cargue y luego mostrar después de las animaciones
+    if (heroBgContainer) {
+      const checkHeroLoaded = () => {
+        if (heroBgContainer.classList.contains('loaded')) {
+          // El hero termina sus animaciones a los ~3.8s, esperamos 4s para mostrar WhatsApp
+          setTimeout(showWhatsappButton, 4000);
+        } else {
+          // Revisar cada 100ms si el hero ya cargó
+          setTimeout(checkHeroLoaded, 100);
+        }
+      };
+      checkHeroLoaded();
+    } else {
+      // Si no hay hero, mostrar inmediatamente
+      showWhatsappButton();
+    }
+  });
+</script>
