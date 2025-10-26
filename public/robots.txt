@@ -1,0 +1,14 @@
+# Robots.txt para Ozona Patagonia
+# Aceites de rosa mosqueta y cosméticos naturales
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://ozonapatagonia.com.ar/sitemap.xml
+
+# Priorizar indexación de productos de rosa mosqueta
+Allow: /#productos-destacados
+Allow: /#nuestros-productos

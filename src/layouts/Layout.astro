@@ -3,39 +3,76 @@ interface Props {
   title: string;
 }
 
-let schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Ozona Patagonia",
-  url: "https://ozonapatagonia.com.ar",
-  logo: "https://ozonapatagonia.com.ar/favicon.svg",
-  image: {
-    "@type": "ImageObject",
-    url: "https://ozonapatagonia.com.ar/favicon.svg",
-    width: 600,
-    height: 600,
+// Schema para Organization y Productos
+let schemas = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Ozona Patagonia",
+    url: "https://ozonapatagonia.com.ar",
+    logo: "https://ozonapatagonia.com.ar/favicon.svg",
+    image: {
+      "@type": "ImageObject",
+      url: "https://ozonapatagonia.com.ar/favicon.svg",
+      width: 600,
+      height: 600,
+    },
+    sameAs: [
+      "https://www.facebook.com/OzonaPatagonia",
+      "https://www.instagram.com/ozona.patagonia",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+54-9-2944-71-2211",
+      contactType: "Customer Service",
+      areaServed: "AR",
+      availableLanguage: "Spanish",
+      email: "info@ozonapatagonia.com.ar",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "San Carlos de Bariloche",
+      addressRegion: "Río Negro",
+      addressCountry: "AR",
+    },
   },
-  sameAs: [
-    "https://www.facebook.com/OzonaPatagonia",
-    "https://www.instagram.com/ozona.patagonia",
-  ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+54-9-2944-71-2211",
-    contactType: "Customer Service",
-    areaServed: "AR",
-    availableLanguage: "Spanish",
-    email: "info@ozonapatagonia.com.ar",
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Aceite de Rosa Mosqueta 100% Puro",
+    description: "Aceite de rosa mosqueta 100% puro, poderoso regenerador de la piel. Contribuye a eliminar manchas, cicatrices y marcas. Producto natural de Bariloche, Patagonia Argentina.",
+    brand: {
+      "@type": "Brand",
+      name: "Ozona Patagonia"
+    },
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "ARS",
+      lowPrice: "11500",
+      highPrice: "46300",
+      availability: "https://schema.org/InStock",
+      url: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta"
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      reviewCount: "1"
+    },
+    category: "Cosmética Natural",
+    image: "https://ozonapatagonia.com.ar/favicon.svg"
   },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Calle Ejemplo 123",
-    addressLocality: "Ciudad",
-    addressRegion: "Provincia",
-    postalCode: "1234",
-    addressCountry: "AR",
-  },
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Ozona Patagonia",
+    url: "https://ozonapatagonia.com.ar",
+    description: "Aceites de rosa mosqueta 100% puros y cosméticos naturales de Bariloche. Productos regionales patagónicos de alta calidad.",
+    publisher: {
+      "@type": "Organization",
+      name: "Ozona Patagonia"
+    }
+  }
+]);
 ---
 
 <!doctype html>
@@ -44,11 +81,11 @@ let schema = JSON.stringify({
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Empresa pionera en San Carlos de Bariloche, especializada en cosméticos 100% gourmet y productos regionales."
+      content="Aceites de rosa mosqueta 100% puros y cosméticos naturales de Bariloche. Aceite puro de rosa mosqueta, cremas antiage, fluidos corporales y productos regionales. Envíos a toda Argentina."
     />
     <meta
       name="keywords"
-      content="ozona patagonia, cosméticos gourmet, cosmética natural, productos regionales, Bariloche, cosmética, cosmética gourmet, cremas, cremas antiage, antiage, rosa mosqueta, productos de belleza"
+      content="aceite de rosa mosqueta, aceites de rosa mosqueta, rosa mosqueta pura, aceite rosa mosqueta bariloche, cosméticos con rosa mosqueta, crema rosa mosqueta, aceite puro rosa mosqueta, ozona patagonia, cosméticos naturales, productos naturales patagonia, cosmética natural bariloche, aceite facial, aceite regenerador, antiage natural, cremas antiage, productos regionales, cosmética gourmet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -72,11 +109,11 @@ let schema = JSON.stringify({
     <!-- Meta Open Graph para mejorar la visualización en redes sociales -->
     <meta
       property="og:title"
-      content="Cosméticos Gourmet y Regionales - Ozona Patagonia"
+      content="Aceites de Rosa Mosqueta 100% Puros - Ozona Patagonia Bariloche"
     />
     <meta
       property="og:description"
-      content="Descubre nuestros productos 100% gourmet y cosméticos regionales hechos en Bariloche."
+      content="Aceite de rosa mosqueta 100% puro de Bariloche. Poderoso regenerador natural para eliminar manchas, cicatrices y marcas. Cosméticos naturales patagónicos."
     />
     <meta property="og:image" content="/images/og-image.jpg" />
     <meta property="og:url" content="https://ozonapatagonia.com.ar" />
@@ -86,19 +123,19 @@ let schema = JSON.stringify({
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Cosméticos Gourmet y Regionales - Ozona Patagonia"
+      content="Aceites de Rosa Mosqueta 100% Puros - Ozona Patagonia"
     />
     <meta
       name="twitter:description"
-      content="Explora productos cosméticos 100% gourmet y regionales hechos en San Carlos de Bariloche."
+      content="Aceite de rosa mosqueta puro de Bariloche. Regenerador natural para manchas, cicatrices y antiage. Cosméticos naturales patagónicos."
     />
     <meta name="twitter:image" content="/images/twitter-image.jpg" />
 
     <!-- Schema.org JSON-LD para datos estructurados -->
-    <script type="application/ld+json" set:html={schema} />
+    <script type="application/ld+json" set:html={schemas} />
 
     <meta name="theme-color" content="#c62828" />
-    <title>Cosméticos Gourmet y Regionales - Ozona Patagonia</title>
+    <title>Aceites de Rosa Mosqueta 100% Puros | Ozona Patagonia Bariloche</title>
   </head>
   <body>
     <slot />
