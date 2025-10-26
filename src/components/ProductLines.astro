@@ -33,27 +33,35 @@ import cremaCorporal from "../assets/products/rosa_mosqueta/crema-corporal.webp"
 import cremaManos from "../assets/products/rosa_mosqueta/crema-para-manos.webp";
 import cremaAntiage from "../assets/products/rosa_mosqueta/ozona-crema-antiage.webp";
 
+// Importar productos - Jabones
+import lineaJabones from "../assets/products/jabones/linea-jabones.webp";
+import jabonChocolate from "../assets/products/jabones/jabon-chocolate.webp";
+import jabonFrutosSecos from "../assets/products/jabones/jabon-frutos-secos.webp";
+import jabonLavanda from "../assets/products/jabones/jabon-lavanda.webp";
+import jabonMiel from "../assets/products/jabones/jabon-miel.webp";
+import jabonRosaMosqueta from "../assets/products/jabones/jabon-rosa-mosqueta.webp";
+
 const productLines = [
-  {
-    id: "rosa-mosqueta",
-    nombre: "Rosa Mosqueta",
-    banner: lineaRosaMosqueta,
-    productos: [
-      { nombre: "Agua Micelar", imagen: aguaMicelar, enlace: "https://tienda.ozonapatagonia.com.ar/product/agua-micelar/" },
-      { nombre: "Contorno de Ojos", imagen: contornoOjos, enlace: "https://tienda.ozonapatagonia.com.ar/product/contorno-de-ojos/" },
-      { nombre: "Crema Corporal", imagen: cremaCorporal, enlace: "https://tienda.ozonapatagonia.com.ar/product/fluido-corporal-rosa-mosqueta/" },
-      { nombre: "Crema para Manos", imagen: cremaManos, enlace: "https://tienda.ozonapatagonia.com.ar/product/crema-para-manos-con-rosa-mosqueta/" },
-      { nombre: "Ozona Crema Antiage", imagen: cremaAntiage, enlace: "https://tienda.ozonapatagonia.com.ar/product/crema-antiage-con-rosa-mosqueta/" },
-    ],
-  },
   {
     id: "aceites-rosa-mosqueta",
     nombre: "Aceites Rosa Mosqueta",
     banner: lineaAceiteRosaMosqueta,
     productos: [
-      { nombre: "Aceite Mosqueta 12ml", imagen: aceiteMosqueta12, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta/" },
-      { nombre: "Aceite Mosqueta 25ml", imagen: aceiteMosqueta25, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta/" },
-      { nombre: "Aceite Mosqueta 55ml", imagen: aceiteMosqueta55, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta/" },
+      { nombre: "Aceite Mosqueta 12ml", imagen: aceiteMosqueta12, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta/", precio: 11500 },
+      { nombre: "Aceite Mosqueta 25ml", imagen: aceiteMosqueta25, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta/", precio: 22700 },
+      { nombre: "Aceite Mosqueta 55ml", imagen: aceiteMosqueta55, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta/", precio: 46300 },
+    ],
+  },
+  {
+    id: "rosa-mosqueta",
+    nombre: "Rosa Mosqueta",
+    banner: lineaRosaMosqueta,
+    productos: [
+      { nombre: "Agua Micelar", imagen: aguaMicelar, enlace: "https://tienda.ozonapatagonia.com.ar/product/agua-micelar/", precio: 18600 },
+      { nombre: "Contorno de Ojos", imagen: contornoOjos, enlace: "https://tienda.ozonapatagonia.com.ar/product/contorno-de-ojos/", precio: 17900 },
+      { nombre: "Fluido Corporal", imagen: cremaCorporal, enlace: "https://tienda.ozonapatagonia.com.ar/product/fluido-corporal-rosa-mosqueta/", precio: 35700 },
+      { nombre: "Crema para Manos", imagen: cremaManos, enlace: "https://tienda.ozonapatagonia.com.ar/product/crema-para-manos-con-rosa-mosqueta/", precio: 17700 },
+      { nombre: "Crema Antiage", imagen: cremaAntiage, enlace: "https://tienda.ozonapatagonia.com.ar/product/crema-antiage-con-rosa-mosqueta/", precio: 28400 },
     ],
   },
   {
@@ -61,10 +69,10 @@ const productLines = [
     nombre: "Aceites Corporales",
     banner: lineaAceiteCorporal,
     productos: [
-      { nombre: "Aceite Corporal Chocolate", imagen: aceiteCorporalChocolate, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/" },
-      { nombre: "Aceite Corporal Lavanda", imagen: aceiteCorporalLavanda, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/" },
-      { nombre: "Aceite Corporal Rosa Mosqueta", imagen: aceiteCorporalRosaMosqueta, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/" },
-      { nombre: "Aceite Corporal Uva", imagen: aceiteCorporalUva, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/" },
+      { nombre: "Aceite Corporal Chocolate", imagen: aceiteCorporalChocolate, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/", precio: 49500 },
+      { nombre: "Aceite Corporal Lavanda", imagen: aceiteCorporalLavanda, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/", precio: 49500 },
+      { nombre: "Aceite Corporal Rosa Mosqueta", imagen: aceiteCorporalRosaMosqueta, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/", precio: 49500 },
+      { nombre: "Aceite Corporal Uva", imagen: aceiteCorporalUva, enlace: "https://tienda.ozonapatagonia.com.ar/product/aceite-corporal-hidratante/", precio: 49500 },
     ],
   },
   {
@@ -72,12 +80,24 @@ const productLines = [
     nombre: "Fragancias",
     banner: lineaFragancias,
     productos: [
-      { nombre: "Fragancia Araucaria", imagen: fraganciaAraucaria, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/" },
-      { nombre: "Fragancia Calafate", imagen: fraganciaCalafate, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/" },
-      { nombre: "Fragancia Lavanda", imagen: fraganciaLavanda, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/" },
-      { nombre: "Fragancia Llao Llao", imagen: fraganciaLlaoLlao, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/" },
-      { nombre: "Fragancia Manzanilla", imagen: fragmentciaManzanilla, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/" },
-      { nombre: "Fragancia Rosa Mosqueta", imagen: fraganciaRosaMosqueta, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/" },
+      { nombre: "Fragancia Araucaria", imagen: fraganciaAraucaria, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/", precio: 5100 },
+      { nombre: "Fragancia Calafate", imagen: fraganciaCalafate, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/", precio: 5100 },
+      { nombre: "Fragancia Lavanda", imagen: fraganciaLavanda, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/", precio: 5100 },
+      { nombre: "Fragancia Llao Llao", imagen: fraganciaLlaoLlao, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/", precio: 5100 },
+      { nombre: "Fragancia Manzanilla", imagen: fragmentciaManzanilla, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/", precio: 5100 },
+      { nombre: "Fragancia Rosa Mosqueta", imagen: fraganciaRosaMosqueta, enlace: "https://tienda.ozonapatagonia.com.ar/product/fragancias-para-telas-y-ambientes/", precio: 5100 },
+    ],
+  },
+  {
+    id: "jabones",
+    nombre: "Jabones",
+    banner: lineaJabones,
+    productos: [
+      { nombre: "Jabón Chocolate", imagen: jabonChocolate, enlace: "https://tienda.ozonapatagonia.com.ar/product/jabon/", precio: 8500 },
+      { nombre: "Jabón Frutos Secos", imagen: jabonFrutosSecos, enlace: "https://tienda.ozonapatagonia.com.ar/product/jabon/", precio: 8500 },
+      { nombre: "Jabón Lavanda", imagen: jabonLavanda, enlace: "https://tienda.ozonapatagonia.com.ar/product/jabon/", precio: 8500 },
+      { nombre: "Jabón Miel", imagen: jabonMiel, enlace: "https://tienda.ozonapatagonia.com.ar/product/jabon/", precio: 8500 },
+      { nombre: "Jabón Rosa Mosqueta", imagen: jabonRosaMosqueta, enlace: "https://tienda.ozonapatagonia.com.ar/product/jabon/", precio: 8500 },
     ],
   },
 ];
@@ -107,7 +127,7 @@ const productLines = [
           <Image
             src={line.banner}
             alt={`Línea ${line.nombre}`}
-            class="line-banner"
+            class={`line-banner ${(line.id === 'aceites-rosa-mosqueta' || line.id === 'rosa-mosqueta') ? 'banner-rosa-mosqueta' : ''}`}
             loading="lazy"
             decoding="async"
           />
@@ -130,6 +150,9 @@ const productLines = [
                 />
                 <div class="product-overlay">
                   <h3 class="product-name">{producto.nombre}</h3>
+                  {producto.precio && (
+                    <p class="product-price">${producto.precio.toLocaleString('es-AR')}</p>
+                  )}
                   <span class="product-button">Comprar en Tienda</span>
                 </div>
               </a>
@@ -265,6 +288,10 @@ const productLines = [
     display: block;
   }
 
+  .banner-rosa-mosqueta {
+    object-position: center 60%;
+  }
+
   .banner-overlay {
     position: absolute;
     top: 0;
@@ -356,6 +383,22 @@ const productLines = [
   }
 
   .product-card:hover .product-name {
+    transform: translateY(-50px);
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 0.3rem 0 0 0;
+    padding: 0 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s ease;
+    transform: translateY(0);
+  }
+
+  .product-card:hover .product-price {
     transform: translateY(-40px);
   }
 
@@ -424,6 +467,17 @@ const productLines = [
 
     .product-name {
       font-size: 1rem;
+    }
+
+    .product-card:hover .product-name {
+      transform: translateY(-40px);
+    }
+
+    .product-price {
+      font-size: 0.95rem;
+    }
+
+    .product-card:hover .product-price {
       transform: translateY(-30px);
     }
 

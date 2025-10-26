@@ -71,14 +71,14 @@ import sello3 from "../assets/logo-marca.webp";
     box-sizing: border-box;
     width: 100%;
     min-height: 92svh;
-    background-color: #c62828;
+    background-color: #f5f5f5;
     margin-top: -100px;
-    padding: 100px 2rem;
+    padding: 50px 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #333;
   }
 
   .logo-container {
@@ -86,12 +86,12 @@ import sello3 from "../assets/logo-marca.webp";
     padding: 1rem;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.05)
+      rgba(0, 0, 0, 0.03),
+      rgba(0, 0, 0, 0.01)
     );
     border-radius: 16px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 
     &:hover {
@@ -122,7 +122,7 @@ import sello3 from "../assets/logo-marca.webp";
     text-align: center;
     margin: 0;
     letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
   }
 
   .container-text {
@@ -135,8 +135,8 @@ import sello3 from "../assets/logo-marca.webp";
     font-size: 1.2rem;
     margin-bottom: 2rem;
     line-height: 1.8;
-    color: #fff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-shadow: none;
 
     &:last-child {
       margin-bottom: 0;
@@ -165,9 +165,9 @@ import sello3 from "../assets/logo-marca.webp";
   }
 
   .stamp-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 1rem 0.75rem;
     display: flex;
@@ -180,13 +180,13 @@ import sello3 from "../assets/logo-marca.webp";
 
     &:hover {
       transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     }
 
     &.featured {
-      border-color: rgba(255, 255, 255, 0.4);
-      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.95);
     }
   }
 
