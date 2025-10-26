@@ -592,7 +592,7 @@ const productLines = [
     }
 
     .product-grid {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: 1fr;
       gap: 15px;
     }
 
@@ -609,28 +609,74 @@ const productLines = [
       letter-spacing: 1px;
     }
 
-    .product-name {
-      font-size: 1rem;
+    /* Mantener aspect-ratio cuadrado en mobile */
+    .product-card {
+      aspect-ratio: 1;
     }
 
-    .product-card:hover .product-name {
-      transform: translateY(-40px);
+    /* Mantener lupa visible en mobile pero en desktop también */
+    .zoom-button {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Overlay siempre visible con fondo oscuro en mobile */
+    .product-overlay {
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .product-name {
+      font-size: 1.15rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 0 1rem;
+      margin: 0;
+      transform: none !important;
     }
 
     .product-price {
-      font-size: 0.95rem;
-    }
-
-    .product-card:hover .product-price {
-      transform: translateY(-30px);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 0 1rem;
+      margin: 0;
+      transform: none !important;
     }
 
     .product-button {
+      position: static;
       opacity: 1;
       visibility: visible;
-      transform: translate(-50%, -50%) translateY(15px);
-      font-size: 0.85rem;
-      padding: 0.6rem 1rem;
+      transform: none !important;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.4rem;
+      white-space: nowrap;
+    }
+
+    .product-card:hover .product-overlay {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1);
+    }
+
+    .product-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .product-card:hover .product-name,
+    .product-card:hover .product-price {
+      transform: none !important;
     }
   }
 
@@ -641,10 +687,6 @@ const productLines = [
 
     .tab-button {
       width: 100%;
-    }
-
-    .product-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 
