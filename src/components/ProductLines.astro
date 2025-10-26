@@ -141,7 +141,7 @@ const productLines = [
 
         <!-- Grid de productos -->
         <div class="product-grid">
-          {line.productos.map((producto) => (
+          {line.productos.map((producto, idx) => (
             <div class="product-card">
               <div class="product-image-container">
                 <Image
@@ -153,8 +153,9 @@ const productLines = [
                   quality={100}
                   width={600}
                   height={600}
+                  data-product-id={`${line.id}-${idx}`}
                 />
-                <button class="zoom-button" data-image-src={producto.imagen.src} data-image-alt={producto.alt || producto.nombre}>
+                <button class="zoom-button" data-product-id={`${line.id}-${idx}`} data-image-alt={producto.alt || producto.nombre}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.35-4.35"></path>
@@ -231,25 +232,27 @@ const productLines = [
       button.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const imageSrc = button.getAttribute('data-image-src');
+        const productId = button.getAttribute('data-product-id');
         const imageAlt = button.getAttribute('data-image-alt');
 
-        if (!imageSrc) return;
+        if (!productId) return;
 
-        // Ocultar el botón de cerrar hasta que cargue la imagen
-        closeModalBtn.style.opacity = '0';
-        closeModalBtn.style.visibility = 'hidden';
+        // Buscar la imagen del producto usando el ID
+        const productImage = document.querySelector<HTMLImageElement>(`.product-image[data-product-id="${productId}"]`);
+
+        if (!productImage) return;
+
+        // Usar la misma imagen ya cargada
+        const imageSrc = productImage.src;
+
+        // Como la imagen ya está cargada, mostrar el botón inmediatamente
+        closeModalBtn.style.opacity = '1';
+        closeModalBtn.style.visibility = 'visible';
 
         modalImage.src = imageSrc;
         modalImage.alt = imageAlt || '';
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-
-        // Mostrar el botón de cerrar cuando la imagen cargue
-        modalImage.onload = () => {
-          closeModalBtn.style.opacity = '1';
-          closeModalBtn.style.visibility = 'visible';
-        };
       });
     });
 
