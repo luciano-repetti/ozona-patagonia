@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { url } = Astro;
-const ogImageUrl = new URL('/logo.jpg', url).href;
+const ogImageUrl = "https://ozonapatagonia.com.ar/logo.jpg";
 
 // Schema para Organization y Productos
 let schemas = JSON.stringify([
@@ -13,10 +13,10 @@ let schemas = JSON.stringify([
     "@type": "Organization",
     name: "Ozona Patagonia",
     url: "https://ozonapatagonia.com.ar",
-    logo: "https://ozonapatagonia.com.ar/favicon.svg",
+    logo: "https://ozonapatagonia.com.ar/logo.jpg",
     image: {
       "@type": "ImageObject",
-      url: "https://ozonapatagonia.com.ar/favicon.svg",
+      url: "https://ozonapatagonia.com.ar/logo.jpg",
       width: 600,
       height: 600,
     },
@@ -43,10 +43,11 @@ let schemas = JSON.stringify([
     "@context": "https://schema.org",
     "@type": "Product",
     name: "Aceite de Rosa Mosqueta 100% Puro",
-    description: "Aceite de rosa mosqueta 100% puro, poderoso regenerador de la piel. Contribuye a eliminar manchas, cicatrices y marcas. Producto natural de Bariloche, Patagonia Argentina.",
+    description:
+      "Aceite de rosa mosqueta 100% puro, poderoso regenerador de la piel. Contribuye a eliminar manchas, cicatrices y marcas. Producto natural de Bariloche, Patagonia Argentina.",
     brand: {
       "@type": "Brand",
-      name: "Ozona Patagonia"
+      name: "Ozona Patagonia",
     },
     offers: {
       "@type": "AggregateOffer",
@@ -54,27 +55,28 @@ let schemas = JSON.stringify([
       lowPrice: "11500",
       highPrice: "46300",
       availability: "https://schema.org/InStock",
-      url: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta"
+      url: "https://tienda.ozonapatagonia.com.ar/product/aceite-de-rosa-mosqueta",
     },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
-      reviewCount: "1"
+      reviewCount: "1",
     },
     category: "Cosmética Natural",
-    image: "https://ozonapatagonia.com.ar/favicon.svg"
+    image: "https://ozonapatagonia.com.ar/favicon.svg",
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Ozona Patagonia",
     url: "https://ozonapatagonia.com.ar",
-    description: "Aceites de rosa mosqueta 100% puros y cosméticos naturales de Bariloche. Productos regionales patagónicos de alta calidad.",
+    description:
+      "Aceites de rosa mosqueta 100% puros y cosméticos naturales de Bariloche. Productos regionales patagónicos de alta calidad.",
     publisher: {
       "@type": "Organization",
-      name: "Ozona Patagonia"
-    }
-  }
+      name: "Ozona Patagonia",
+    },
+  },
 ]);
 ---
 
@@ -140,7 +142,9 @@ let schemas = JSON.stringify([
     <script is:inline type="application/ld+json" set:html={schemas} />
 
     <meta name="theme-color" content="#c62828" />
-    <title>Aceites de Rosa Mosqueta 100% Puros | Ozona Patagonia Bariloche</title>
+    <title>
+      Aceites de Rosa Mosqueta 100% Puros | Ozona Patagonia Bariloche
+    </title>
   </head>
   <body>
     <slot />
